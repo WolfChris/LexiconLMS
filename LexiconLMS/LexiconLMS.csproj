@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201711231421504_initialmodel.Designer.cs">
       <DependentUpon>201711231421504_initialmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711231523555_createdRollsInStartup.cs" />
+    <Compile Include="Migrations\201711231523555_createdRollsInStartup.Designer.cs">
+      <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -213,6 +217,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\logo-lexicon%402x.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -283,6 +288,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711231421504_initialmodel.resx">
       <DependentUpon>201711231421504_initialmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231523555_createdRollsInStartup.resx">
+      <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
