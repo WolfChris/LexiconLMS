@@ -13,5 +13,9 @@ namespace LexiconLMS.Models
         public DateTime CoEndDate { get; set; }
 
         public string Description { get; set; }
+
+        public Modul Modul { get; set; }
+
+        public IEnumerable<Modul> Moduls { get; set; }
     }
 }
