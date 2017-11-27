@@ -204,9 +204,13 @@
     <Compile Include="Migrations\201711231523555_createdRollsInStartup.Designer.cs">
       <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711241054525_updateRolesCourseAdded.cs" />
-    <Compile Include="Migrations\201711241054525_updateRolesCourseAdded.Designer.cs">
-      <DependentUpon>201711241054525_updateRolesCourseAdded.cs</DependentUpon>
+    <Compile Include="Migrations\201711270949093_CreatingCoursetable.cs" />
+    <Compile Include="Migrations\201711270949093_CreatingCoursetable.Designer.cs">
+      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271010191_addingnewteacher.cs" />
+    <Compile Include="Migrations\201711271010191_addingnewteacher.Designer.cs">
+      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -303,8 +307,11 @@
     <EmbeddedResource Include="Migrations\201711231523555_createdRollsInStartup.resx">
       <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711241054525_updateRolesCourseAdded.resx">
-      <DependentUpon>201711241054525_updateRolesCourseAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711270949093_CreatingCoursetable.resx">
+      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271010191_addingnewteacher.resx">
+      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
