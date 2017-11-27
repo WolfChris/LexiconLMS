@@ -17,7 +17,8 @@ namespace LexiconLMS.Controllers
         // GET: Moduls
         public ActionResult Index()
         {
-            return View(db.Moduls.ToList());
+            var moduls = db.Moduls.Include(m => m.Course);
+            return View(moduls.ToList());
         }
 
         // GET: Moduls/Details/5
@@ -38,6 +39,7 @@ namespace LexiconLMS.Controllers
         // GET: Moduls/Create
         public ActionResult Create()
         {
+            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace LexiconLMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ModulName,ModulDescription,ModulStart,ModulEnd")] Modul modul)
+        public ActionResult Create([Bind(Include = "Id,ModulName,ModulDescription,ModulStart,ModulEnd,Courseid")] Modul modul)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace LexiconLMS.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
             return View(modul);
         }
 
@@ -70,6 +73,7 @@ namespace LexiconLMS.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
             return View(modul);
         }
 
@@ -78,7 +82,7 @@ namespace LexiconLMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ModulName,ModulDescription,ModulStart,ModulEnd")] Modul modul)
+        public ActionResult Edit([Bind(Include = "Id,ModulName,ModulDescription,ModulStart,ModulEnd,Courseid")] Modul modul)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace LexiconLMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
             return View(modul);
         }
 

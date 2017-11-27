@@ -1,16 +1,19 @@
 ﻿@model IEnumerable<LexiconLMS.Models.Modul>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List Of Modules";
 }
 
-<h2>Index</h2>
+<h2>List Of Module</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Modul", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.CourseName)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ModulName)
         </th>
@@ -28,6 +31,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.CourseName)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ModulName)
         </td>
@@ -49,3 +55,6 @@
 }
 
 </table>
+
+
+
