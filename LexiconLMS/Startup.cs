@@ -15,6 +15,7 @@ namespace LexiconLMS
             //CreateRolesandUsers();
         }
 
+
         //private void CreateRolesandUsers()
         //{
         //    ApplicationDbContext context = new ApplicationDbContext();
@@ -57,6 +58,7 @@ namespace LexiconLMS
         //        roleManager.Create(role);
 
         //    }
+        //**admin1 = Password@1234
 
         //    if (!roleManager.RoleExists("Teacher"))
         //    {
