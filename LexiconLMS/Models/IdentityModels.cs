@@ -29,5 +29,11 @@ namespace LexiconLMS.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<LexiconLMS.Models.Course> Courses { get; set; }
+
+        public System.Data.Entity.DbSet<LexiconLMS.Models.Modul> Moduls { get; set; }
+
+       
     }
 }

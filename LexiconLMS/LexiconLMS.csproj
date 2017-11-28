@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyController.cs" />
@@ -204,14 +205,32 @@
     <Compile Include="Migrations\201711231523555_createdRollsInStartup.Designer.cs">
       <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711270949093_CreatingCoursetable.cs" />
+    <Compile Include="Migrations\201711270949093_CreatingCoursetable.Designer.cs">
+      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271010191_addingnewteacher.cs" />
+    <Compile Include="Migrations\201711271010191_addingnewteacher.Designer.cs">
+      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271628323_ModulTable.cs" />
+    <Compile Include="Migrations\201711271628323_ModulTable.Designer.cs">
+      <DependentUpon>201711271628323_ModulTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271942514_nav.cs" />
+    <Compile Include="Migrations\201711271942514_nav.Designer.cs">
+      <DependentUpon>201711271942514_nav.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Module.cs" />
+    <Compile Include="Models\Modul.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CourseViewModel.cs" />
+    <Compile Include="ViewModels\ModulViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -271,6 +290,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Moduls\Create.cshtml" />
+    <Content Include="Views\Moduls\Delete.cshtml" />
+    <Content Include="Views\Moduls\Details.cshtml" />
+    <Content Include="Views\Moduls\Edit.cshtml" />
+    <Content Include="Views\Moduls\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -295,6 +325,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711231523555_createdRollsInStartup.resx">
       <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270949093_CreatingCoursetable.resx">
+      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271010191_addingnewteacher.resx">
+      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271628323_ModulTable.resx">
+      <DependentUpon>201711271628323_ModulTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271942514_nav.resx">
+      <DependentUpon>201711271942514_nav.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
