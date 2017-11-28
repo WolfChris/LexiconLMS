@@ -1,6 +1,7 @@
 ﻿using LexiconLMS.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -8,8 +9,10 @@ namespace LexiconLMS.ViewModels
 {
     public class CourseViewModel
     {
-        public int CourseId { get; set; }
+       [DisplayName("Course Name")]
         public string CourseName { get; set; }
+
+        [DisplayName("Course Starting Date")]
         public DateTime CoStartDate { get; set; }
         public DateTime CoEndDate { get; set; }
 

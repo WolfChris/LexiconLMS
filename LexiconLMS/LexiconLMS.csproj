@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModulsController.cs" />
     <Compile Include="Controllers\MyController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +230,10 @@
     <Compile Include="Migrations\201711281226548_addModul.cs" />
     <Compile Include="Migrations\201711281226548_addModul.Designer.cs">
       <DependentUpon>201711281226548_addModul.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.cs" />
+    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.Designer.cs">
+      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -352,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711281226548_addModul.resx">
       <DependentUpon>201711281226548_addModul.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711282244390_addstudentwithroleInDB.resx">
+      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

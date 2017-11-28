@@ -29,9 +29,9 @@ namespace LexiconLMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.Courses.Find(id);
-          var modul =  db.Moduls.Where(i=>i.Courseid== id).ToList();
-
-            //Course course = db.Courses.Where(i=>i.CourseId== Modul) id.coInstructors.Where(i => i.ID == id.Value).Single().Courses;
+            TempData["course"] = course.CourseName;
+            TempData["courseDescription"] = course.Description;
+            var modul =  db.Moduls.Where(i=>i.Courseid== id).ToList();
             if (course == null)
             {
                 return HttpNotFound();

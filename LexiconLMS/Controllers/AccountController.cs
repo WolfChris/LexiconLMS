@@ -109,7 +109,7 @@ namespace LexiconLMS.Controllers
                     //role Admin go to Admin page
                     else if (UserManager.IsInRole(user.Id, "Student"))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Student");
                     }
                     else
                     {

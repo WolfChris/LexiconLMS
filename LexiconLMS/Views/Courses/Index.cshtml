@@ -4,7 +4,7 @@
     ViewBag.Title = "List Of Courses";
 }
 
-<h2>Index</h2>
+<h2>List Of Courses</h2>
 
 <p>
     @Html.ActionLink("Create New Course", "Create")
@@ -24,9 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.CoEndDate)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Description)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -41,9 +41,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.CoEndDate)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Description)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
             @Html.ActionLink("Show Modules", "Details", new { id=item.CourseId }) |
