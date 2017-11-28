@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LexiconLMS.Models
 {
@@ -64,6 +66,10 @@ namespace LexiconLMS.Models
 
     public class RegisterViewModel
     {
+        //[Required]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +85,12 @@ namespace LexiconLMS.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //public IEnumerable<IdentityRole> UserRoles { get; set; }
+        //public int RoleId { get; set; }
+
+        //[ForeignKey("RoleId")]
+        //public IdentityRole IdentityRole { get; set; }
     }
 
     public class ResetPasswordViewModel
