@@ -4,54 +4,83 @@
     ViewBag.Title = "List Of Courses";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New Course", "Create")
-</p>
-
-<p>
-    @Html.ActionLink("Create New Modul", "Create", "Moduls")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CoStartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CoEndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CoStartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CoEndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
-        </td>
-    </tr>
-}
-
-</table>
 
 
+<div class="container-fluid container-xs-height">
+    <div class="row row-xs-height">
+        <div class="col-sm-3 col-md-2 sidebar col-xs-height">
+            @*list of all courses goes here lists are separated by 'ul' for example*@
+            <h2>Course List</h2>
+            <ul class="nav nav-sidebar">
+                @foreach (var item in Model)
+                {
+                    <li>@Html.DisplayFor(modelItem => item.CourseName)</li>
+                    
+                }
+        </ul>
+
+        </div>
+
+        <div class="col-sm-9 col-md-10 main col-xs-height">
+
+            @*area to show more detailed information*@
+
+
+            <p>
+                @Html.ActionLink("Create New Course", "Create")
+            </p>
+
+            <p>
+                @Html.ActionLink("Create New Modul", "Create", "Moduls")
+            </p>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CourseName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CoStartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CoEndDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourseName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CoStartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CoEndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+        </div>
+
+
+
+ 
+    </div>
+</div>
