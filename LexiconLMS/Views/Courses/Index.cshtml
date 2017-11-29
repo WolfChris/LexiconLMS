@@ -15,11 +15,8 @@
                 <div class="list-group">
                     @foreach (var item in Model)
                     {
-                        
-                        <a href=@Url.Action("Details", new { id = item.CourseId }) class="list-group-item" target="workspace">@Html.DisplayFor(modelItem => item.CourseName)</a>
-                        
- 
-
+                        @Ajax.ActionLink(item.CourseName, "Details", new { id = item.CourseId }, new AjaxOptions { UpdateTargetId = "workspace" }, new { @class="list-group-item" })
+                    
                         @*<a href="#" class="list-group-item">Second item</a>
                         <a href="#" class="list-group-item">Third item</a>
 

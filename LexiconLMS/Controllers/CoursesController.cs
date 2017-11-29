@@ -10,7 +10,7 @@ using LexiconLMS.Models;
 
 namespace LexiconLMS.Controllers
 {
-    [Authorize(Roles ="Teacher")]
+    [Authorize(Roles = "Teacher")]
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -33,6 +33,7 @@ namespace LexiconLMS.Controllers
             {
                 return HttpNotFound();
             }
+            if (Request.IsAjaxRequest()) return PartialView(course);
             return View(course);
         }
 
