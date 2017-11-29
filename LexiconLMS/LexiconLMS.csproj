@@ -193,7 +193,9 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ModulsController.cs" />
     <Compile Include="Controllers\MyController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,6 +230,10 @@
     <Compile Include="Migrations\201711290530030_doublecheck.cs" />
     <Compile Include="Migrations\201711290530030_doublecheck.Designer.cs">
       <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711291321501_fixingModuls.cs" />
+    <Compile Include="Migrations\201711291321501_fixingModuls.Designer.cs">
+      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711290530030_doublecheck.resx">
       <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711291321501_fixingModuls.resx">
+      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
