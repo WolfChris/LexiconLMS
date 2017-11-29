@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201711280818008_merge.Designer.cs">
       <DependentUpon>201711280818008_merge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711290530030_doublecheck.cs" />
+    <Compile Include="Migrations\201711290530030_doublecheck.Designer.cs">
+      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -343,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711280818008_merge.resx">
       <DependentUpon>201711280818008_merge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711290530030_doublecheck.resx">
+      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

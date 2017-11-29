@@ -15,8 +15,11 @@
                 <div class="list-group">
                     @foreach (var item in Model)
                     {
+                        
+                        <a href=@Url.Action("Details", new { id = item.CourseId }) class="list-group-item" target="workspace">@Html.DisplayFor(modelItem => item.CourseName)</a>
+                        
+ 
 
-                        <a href="#" class="list-group-item">@Html.DisplayFor(modelItem => item.CourseName)</a>
                         @*<a href="#" class="list-group-item">Second item</a>
                         <a href="#" class="list-group-item">Third item</a>
 
@@ -41,6 +44,11 @@
             <p>
                 @Html.ActionLink("Create New Modul", "Create", "Moduls")
             </p>
+
+            <div id="workspace">
+
+
+            </div>
 
             @*<table class="table">
                 <tr>
