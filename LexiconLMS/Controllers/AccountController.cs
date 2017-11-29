@@ -101,12 +101,12 @@ namespace LexiconLMS.Controllers
                 {
                     var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
-                    //role Employer go to Employer page
+                    //role teacher go to teacher page
                     if (UserManager.IsInRole(user.Id, "Teacher"))
                     {
                         return RedirectToAction("Index", "Courses");
                     }
-                    //role Admin go to Admin page
+                    //role student go to student page
                     else if (UserManager.IsInRole(user.Id, "Student"))
                     {
                         return RedirectToAction("Index", "Student");
@@ -123,7 +123,7 @@ namespace LexiconLMS.Controllers
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+           
             return View(model);
         }
 
