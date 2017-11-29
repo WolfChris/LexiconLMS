@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201711291321501_fixingModuls.Designer.cs">
       <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711291508018_reverttoOld.cs" />
+    <Compile Include="Migrations\201711291508018_reverttoOld.Designer.cs">
+      <DependentUpon>201711291508018_reverttoOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -361,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291321501_fixingModuls.resx">
       <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711291508018_reverttoOld.resx">
+      <DependentUpon>201711291508018_reverttoOld.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
