@@ -235,9 +235,13 @@
     <Compile Include="Migrations\201711291321501_fixingModuls.Designer.cs">
       <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711291508018_reverttoOld.cs" />
-    <Compile Include="Migrations\201711291508018_reverttoOld.Designer.cs">
-      <DependentUpon>201711291508018_reverttoOld.cs</DependentUpon>
+    <Compile Include="Migrations\201711291330160_updtefile.cs" />
+    <Compile Include="Migrations\201711291330160_updtefile.Designer.cs">
+      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301029140_creatingstudentrole.cs" />
+    <Compile Include="Migrations\201711301029140_creatingstudentrole.Designer.cs">
+      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -366,8 +370,11 @@
     <EmbeddedResource Include="Migrations\201711291321501_fixingModuls.resx">
       <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711291508018_reverttoOld.resx">
-      <DependentUpon>201711291508018_reverttoOld.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711291330160_updtefile.resx">
+      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301029140_creatingstudentrole.resx">
+      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

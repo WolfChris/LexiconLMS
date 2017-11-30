@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace LexiconLMS.Controllers
 {
-    [Authorize(Roles ="Students")]
+    [Authorize(Roles ="Student")]
     public class StudentController : Controller
     {
         // GET: Student
