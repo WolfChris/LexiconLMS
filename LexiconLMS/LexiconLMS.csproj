@@ -227,17 +227,21 @@
     <Compile Include="Migrations\201711280818008_merge.Designer.cs">
       <DependentUpon>201711280818008_merge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711281226548_addModul.cs" />
-    <Compile Include="Migrations\201711281226548_addModul.Designer.cs">
-      <DependentUpon>201711281226548_addModul.cs</DependentUpon>
+    <Compile Include="Migrations\201711290530030_doublecheck.cs" />
+    <Compile Include="Migrations\201711290530030_doublecheck.Designer.cs">
+      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.cs" />
-    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.Designer.cs">
-      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
+    <Compile Include="Migrations\201711291321501_fixingModuls.cs" />
+    <Compile Include="Migrations\201711291321501_fixingModuls.Designer.cs">
+      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711301308576_addingTeacher.cs" />
-    <Compile Include="Migrations\201711301308576_addingTeacher.Designer.cs">
-      <DependentUpon>201711301308576_addingTeacher.cs</DependentUpon>
+    <Compile Include="Migrations\201711291330160_updtefile.cs" />
+    <Compile Include="Migrations\201711291330160_updtefile.Designer.cs">
+      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301029140_creatingstudentrole.cs" />
+    <Compile Include="Migrations\201711301029140_creatingstudentrole.Designer.cs">
+      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -267,6 +271,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -322,7 +328,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\My\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -359,14 +364,17 @@
     <EmbeddedResource Include="Migrations\201711280818008_merge.resx">
       <DependentUpon>201711280818008_merge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711281226548_addModul.resx">
-      <DependentUpon>201711281226548_addModul.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711290530030_doublecheck.resx">
+      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711282244390_addstudentwithroleInDB.resx">
-      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711291321501_fixingModuls.resx">
+      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301308576_addingTeacher.resx">
-      <DependentUpon>201711301308576_addingTeacher.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711291330160_updtefile.resx">
+      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301029140_creatingstudentrole.resx">
+      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

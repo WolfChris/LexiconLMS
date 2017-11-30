@@ -4,6 +4,7 @@
     ViewBag.Title = "List Of Modules in the course";
 }
 
+<h3>Details</h3>
 
 <div>
     <h4> @TempData["course"] Course</h4>
@@ -25,6 +26,18 @@
     <hr />
 </div>
 <p>
+    @Ajax.ActionLink("Edit", // <-- Text to display
+                 "Edit", // <-- Action Method Name
+                 new { id = Model.CourseId },
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CourseId })*@ |
 
-    @Html.ActionLink("Back to List", "Index")
+
+    @Html.ActionLink("Back to List", "Index" )
+
 </p>

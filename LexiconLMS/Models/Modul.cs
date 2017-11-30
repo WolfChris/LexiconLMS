@@ -13,12 +13,10 @@ namespace LexiconLMS.Models
         public string ModulDescription { get; set; }
         public DateTime ModulStart { get; set; }
         public DateTime ModulEnd { get; set; }
-
        
         public int Courseid { get; set; }
         [ForeignKey("Courseid")]
         public Course Course { get; set; }
-
 
     }
 }

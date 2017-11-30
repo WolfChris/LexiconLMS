@@ -177,8 +177,12 @@ namespace LexiconLMS.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-                
+            var allRoles = (new ApplicationDbContext()).Roles.OrderBy(r=>r.Name).ToList().Select(r=>
+            new SelectListItem { Value = r.Name.ToString(), Text = r.Name }).ToList();
+
+            ViewBag.Roles = allRoles;
             return View();
+        
         }
 
         //
@@ -190,10 +194,13 @@ namespace LexiconLMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
+               
+        var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, model.UserRole);
+                  
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -203,6 +210,15 @@ namespace LexiconLMS.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    var allRoles = (new ApplicationDbContext()).Roles.OrderBy(r => r.Name).ToList().Select(rr =>
+
+                        new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
+
+                    ViewBag.Roles = allRoles;
+                    AddErrors(result);
                 }
                 AddErrors(result);
             }
