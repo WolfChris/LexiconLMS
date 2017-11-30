@@ -105,12 +105,12 @@ namespace LexiconLMS.Controllers
                     //role Admin go to Admin page
                     else if (UserManager.IsInRole(user.Id, "Student"))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Courses");
                     }
                     else
                     {
                         //no role
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Courses");
                     }
                 }
                 else
@@ -197,7 +197,7 @@ namespace LexiconLMS.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Courses");
                 }
                 AddErrors(result);
             }
@@ -426,7 +426,7 @@ namespace LexiconLMS.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Courses");
         }
 
         //
