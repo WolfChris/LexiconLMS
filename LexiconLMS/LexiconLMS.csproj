@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201711231523555_createdRollsInStartup.Designer.cs">
       <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711241054525_updateRolesCourseAdded.cs" />
+    <Compile Include="Migrations\201711241054525_updateRolesCourseAdded.Designer.cs">
+      <DependentUpon>201711241054525_updateRolesCourseAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201711270949093_CreatingCoursetable.cs" />
     <Compile Include="Migrations\201711270949093_CreatingCoursetable.Designer.cs">
       <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
@@ -226,6 +230,14 @@
     <Compile Include="Migrations\201711280818008_merge.cs" />
     <Compile Include="Migrations\201711280818008_merge.Designer.cs">
       <DependentUpon>201711280818008_merge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711281226548_addModul.cs" />
+    <Compile Include="Migrations\201711281226548_addModul.Designer.cs">
+      <DependentUpon>201711281226548_addModul.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.cs" />
+    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.Designer.cs">
+      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201711290530030_doublecheck.cs" />
     <Compile Include="Migrations\201711290530030_doublecheck.Designer.cs">
@@ -349,6 +361,9 @@
     <EmbeddedResource Include="Migrations\201711231523555_createdRollsInStartup.resx">
       <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241054525_updateRolesCourseAdded.resx">
+      <DependentUpon>201711241054525_updateRolesCourseAdded.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711270949093_CreatingCoursetable.resx">
       <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,6 +378,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711280818008_merge.resx">
       <DependentUpon>201711280818008_merge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711281226548_addModul.resx">
+      <DependentUpon>201711281226548_addModul.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711282244390_addstudentwithroleInDB.resx">
+      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711290530030_doublecheck.resx">
       <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>

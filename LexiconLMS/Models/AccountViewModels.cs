@@ -67,7 +67,7 @@ namespace LexiconLMS.Models
     public class RegisterViewModel
     {
         //[Required]
-        [Display(Name = "UserRoles")]
+        [Display(Name = "UserRole")]
         public string UserRoles { get; set; }
 
         [Required]

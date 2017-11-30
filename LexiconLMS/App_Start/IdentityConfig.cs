@@ -87,7 +87,10 @@ namespace LexiconLMS
             return manager;
         }
 
-       
+        internal void AddToRole(string id, object userRole)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     // Configure the application sign-in manager which is used in this application.
