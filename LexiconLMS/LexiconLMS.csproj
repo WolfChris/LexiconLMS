@@ -239,6 +239,14 @@
     <Compile Include="Migrations\201711291508018_reverttoOld.Designer.cs">
       <DependentUpon>201711291508018_reverttoOld.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.cs" />
+    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.Designer.cs">
+      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.cs" />
+    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.Designer.cs">
+      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -368,6 +376,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291508018_reverttoOld.resx">
       <DependentUpon>201711291508018_reverttoOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301110265_seedingCoursesAndModules.resx">
+      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301128569_seedingCoursesAndModules1.resx">
+      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
