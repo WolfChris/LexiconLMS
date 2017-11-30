@@ -64,6 +64,7 @@ namespace LexiconLMS.Models
 
     public class RegisterViewModel
     {
+        public string UserRole { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
