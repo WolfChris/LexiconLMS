@@ -4,44 +4,23 @@
     ViewBag.Title = "List Of Courses";
 }
 
-
-
 <div class="container-fluid container-xs-height">
     <div class="row row-xs-height">
         <div class="col-sm-3 col-md-2 sidebar col-xs-height">
             @*list of all courses goes here lists are separated by 'ul' for example*@
             <h3>Course List</h3>
-            @*<ul class="nav nav-sidebar">*@
                 <div class="list-group">
                     @foreach (var item in Model)
                     {
                         @Ajax.ActionLink(item.CourseName, "Details", new { id = item.CourseId }, new AjaxOptions { UpdateTargetId = "workspace" }, new { @class="list-group-item" })
-                    
-                        @*<a href="#" class="list-group-item">Second item</a>
-                        <a href="#" class="list-group-item">Third item</a>
-
-                        <li>@Html.DisplayFor(modelItem => item.CourseName)</li>*@
 
                     }
                 </div>
-
-        @*</ul>*@
-
         </div>
 
         <div class="col-sm-9 col-md-10 main col-xs-height">
 
-            @*area to show more detailed information*@
-
-
-            <p>
-                @Html.ActionLink("Create New Course", "Create")
-            </p>
-
-            <p>
-                @Html.ActionLink("Create New Modul", "Create", "Moduls")
-            </p>
-
+            @*clicked links are displayed here*@
             <div id="workspace">
 
 
@@ -89,7 +68,29 @@
 
             </table>*@
 
+            <p>
+                @Ajax.ActionLink("Create New Course", // <-- Text to display
+                 "Create", // <-- Action Method Name
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
 
+                |
+
+                @Ajax.ActionLink("Create New Module", // <-- Text to display
+                 "Create", // <-- Action Method Name
+                 "Moduls",
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+
+            </p>
         </div>
 
 
