@@ -12,7 +12,7 @@ namespace LexiconLMS.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(LexiconLMS.Models.ApplicationDbContext context)
