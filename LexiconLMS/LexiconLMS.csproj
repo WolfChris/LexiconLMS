@@ -250,6 +250,10 @@
     <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.Designer.cs">
       <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712010821276_newMerge.cs" />
+    <Compile Include="Migrations\201712010821276_newMerge.Designer.cs">
+      <DependentUpon>201712010821276_newMerge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -385,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711301128569_seedingCoursesAndModules1.resx">
       <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712010821276_newMerge.resx">
+      <DependentUpon>201712010821276_newMerge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
