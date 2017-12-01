@@ -1,5 +1,8 @@
 namespace LexiconLMS.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -92,18 +95,19 @@ namespace LexiconLMS.Migrations
 
             var userStore = new UserStore<ApplicationUser>(context);
             var UserManager = new UserManager<ApplicationUser>(userStore);
-            
+
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            
+
             string password = "Password@1234!";
 
             //Create Role Teacher and Student if it does not exist
             var roleNames = new[] { "Teacher", "Student" };
-            foreach (var roleName in roleNames) { 
-                if (!RoleManager.RoleExists(roleName))
+            foreach (var roleName in roleNames)
             {
-                var roleresult = RoleManager.Create(new IdentityRole(roleName));
-            }
+                if (!RoleManager.RoleExists(roleName))
+                {
+                    var roleresult = RoleManager.Create(new IdentityRole(roleName));
+                }
             }
 
             context.SaveChanges();
@@ -111,9 +115,11 @@ namespace LexiconLMS.Migrations
 
             var users = new[] { "admin1@admin1.com", "student1@lexicon.se", "student2@lexicon.se", "student3@lexicon.se" };
 
-            foreach(var user in users) {
+            foreach (var user in users)
+            {
                 if (context.Users.Any(u => u.UserName == user)) continue;
-                if(user != "admin1@admin1.com") {
+                if (user != "admin1@admin1.com")
+                {
                     password = "Student@1234";
                 }
                 var admin1 = new ApplicationUser { UserName = user, Email = user };
@@ -138,4 +144,5 @@ namespace LexiconLMS.Migrations
             context.SaveChanges();
         }
     }
-}
+    }
+

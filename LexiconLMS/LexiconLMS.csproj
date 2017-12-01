@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -223,6 +224,10 @@
     <Compile Include="Migrations\201712010810487_addActivityandActivityType.cs" />
     <Compile Include="Migrations\201712010810487_addActivityandActivityType.Designer.cs">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011237414_addFirstNameLastnameForUser.cs" />
+    <Compile Include="Migrations\201712011237414_addFirstNameLastnameForUser.Designer.cs">
+      <DependentUpon>201712011237414_addFirstNameLastnameForUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -310,6 +315,7 @@
     <Content Include="Views\Activities\Details.cshtml" />
     <Content Include="Views\Activities\Edit.cshtml" />
     <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712010810487_addActivityandActivityType.resx">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011237414_addFirstNameLastnameForUser.resx">
+      <DependentUpon>201712011237414_addFirstNameLastnameForUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
