@@ -40,7 +40,7 @@ namespace LexiconLMS.Controllers
         public ActionResult Create()
         {
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
+            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace LexiconLMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ActivityName,ActivityStart,ActivityEnd,ActivityDescription,ActivityTypeId,CourseId")] Activity activity)
+        public ActionResult Create([Bind(Include = "Id,ActivityName,ActivityStart,ActivityEnd,ActivityDescription,ActivityTypeId,ModuleId")] Activity activity)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace LexiconLMS.Controllers
             }
 
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.ModuleId);
+            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
             return View(activity);
         }
 
@@ -76,7 +76,7 @@ namespace LexiconLMS.Controllers
                 return HttpNotFound();
             }
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.ModuleId);
+            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
             return View(activity);
         }
 
@@ -85,7 +85,7 @@ namespace LexiconLMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ActivityName,ActivityStart,ActivityEnd,ActivityDescription,ActivityTypeId,CourseId")] Activity activity)
+        public ActionResult Edit([Bind(Include = "Id,ActivityName,ActivityStart,ActivityEnd,ActivityDescription,ActivityTypeId,ModuleId")] Activity activity)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace LexiconLMS.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.ModuleId);
+            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
             return View(activity);
         }
 
