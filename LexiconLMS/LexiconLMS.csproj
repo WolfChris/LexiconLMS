@@ -202,37 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711301449346_Init.cs" />
-    <Compile Include="Migrations\201711301449346_Init.Designer.cs">
-      <DependentUpon>201711301449346_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.cs" />
-    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.Designer.cs">
-      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.cs" />
-    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.Designer.cs">
-      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301558443_added_Activity_and_ActivityType2.cs" />
-    <Compile Include="Migrations\201711301558443_added_Activity_and_ActivityType2.Designer.cs">
-      <DependentUpon>201711301558443_added_Activity_and_ActivityType2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301612107_added_Activity_and_ActivityType3.cs" />
-    <Compile Include="Migrations\201711301612107_added_Activity_and_ActivityType3.Designer.cs">
-      <DependentUpon>201711301612107_added_Activity_and_ActivityType3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712010810487_addActivityandActivityType.cs" />
-    <Compile Include="Migrations\201712010810487_addActivityandActivityType.Designer.cs">
-      <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712011054172_Altered_Activitycs.cs" />
-    <Compile Include="Migrations\201712011054172_Altered_Activitycs.Designer.cs">
-      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712011237414_addFirstNameLastnameForUser.cs" />
-    <Compile Include="Migrations\201712011237414_addFirstNameLastnameForUser.Designer.cs">
-      <DependentUpon>201712011237414_addFirstNameLastnameForUser.cs</DependentUpon>
+    <Compile Include="Migrations\201712011503184_inti.cs" />
+    <Compile Include="Migrations\201712011503184_inti.Designer.cs">
+      <DependentUpon>201712011503184_inti.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -347,29 +319,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711301449346_Init.resx">
-      <DependentUpon>201711301449346_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301110265_seedingCoursesAndModules.resx">
-      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301128569_seedingCoursesAndModules1.resx">
-      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301558443_added_Activity_and_ActivityType2.resx">
-      <DependentUpon>201711301558443_added_Activity_and_ActivityType2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301612107_added_Activity_and_ActivityType3.resx">
-      <DependentUpon>201711301612107_added_Activity_and_ActivityType3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010810487_addActivityandActivityType.resx">
-      <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011054172_Altered_Activitycs.resx">
-      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011237414_addFirstNameLastnameForUser.resx">
-      <DependentUpon>201712011237414_addFirstNameLastnameForUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712011503184_inti.resx">
+      <DependentUpon>201712011503184_inti.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
