@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\ActivityTypesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -224,6 +225,10 @@
     <Compile Include="Migrations\201712010810487_addActivityandActivityType.cs" />
     <Compile Include="Migrations\201712010810487_addActivityandActivityType.Designer.cs">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011054172_Altered_Activitycs.cs" />
+    <Compile Include="Migrations\201712011054172_Altered_Activitycs.Designer.cs">
+      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201712011237414_addFirstNameLastnameForUser.cs" />
     <Compile Include="Migrations\201712011237414_addFirstNameLastnameForUser.Designer.cs">
@@ -318,6 +323,11 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\ActivityTypes\Create.cshtml" />
+    <Content Include="Views\ActivityTypes\Delete.cshtml" />
+    <Content Include="Views\ActivityTypes\Details.cshtml" />
+    <Content Include="Views\ActivityTypes\Edit.cshtml" />
+    <Content Include="Views\ActivityTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -354,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712010810487_addActivityandActivityType.resx">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011054172_Altered_Activitycs.resx">
+      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712011237414_addFirstNameLastnameForUser.resx">
       <DependentUpon>201712011237414_addFirstNameLastnameForUser.cs</DependentUpon>

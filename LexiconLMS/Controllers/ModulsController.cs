@@ -28,6 +28,7 @@ namespace LexiconLMS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.ModulActivities = db.Activities.Where(p => p.ModuleId == id).ToList();
             Modul modul = db.Moduls.Find(id);
             if (modul == null)
             {
