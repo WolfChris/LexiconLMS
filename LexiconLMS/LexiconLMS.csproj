@@ -199,61 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711231421504_initialmodel.cs" />
-    <Compile Include="Migrations\201711231421504_initialmodel.Designer.cs">
-      <DependentUpon>201711231421504_initialmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231523555_createdRollsInStartup.cs" />
-    <Compile Include="Migrations\201711231523555_createdRollsInStartup.Designer.cs">
-      <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711241054525_updateRolesCourseAdded.cs" />
-    <Compile Include="Migrations\201711241054525_updateRolesCourseAdded.Designer.cs">
-      <DependentUpon>201711241054525_updateRolesCourseAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711270949093_CreatingCoursetable.cs" />
-    <Compile Include="Migrations\201711270949093_CreatingCoursetable.Designer.cs">
-      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711271010191_addingnewteacher.cs" />
-    <Compile Include="Migrations\201711271010191_addingnewteacher.Designer.cs">
-      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711271628323_ModulTable.cs" />
-    <Compile Include="Migrations\201711271628323_ModulTable.Designer.cs">
-      <DependentUpon>201711271628323_ModulTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711271942514_nav.cs" />
-    <Compile Include="Migrations\201711271942514_nav.Designer.cs">
-      <DependentUpon>201711271942514_nav.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711280818008_merge.cs" />
-    <Compile Include="Migrations\201711280818008_merge.Designer.cs">
-      <DependentUpon>201711280818008_merge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711281226548_addModul.cs" />
-    <Compile Include="Migrations\201711281226548_addModul.Designer.cs">
-      <DependentUpon>201711281226548_addModul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.cs" />
-    <Compile Include="Migrations\201711282244390_addstudentwithroleInDB.Designer.cs">
-      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711290530030_doublecheck.cs" />
-    <Compile Include="Migrations\201711290530030_doublecheck.Designer.cs">
-      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711291321501_fixingModuls.cs" />
-    <Compile Include="Migrations\201711291321501_fixingModuls.Designer.cs">
-      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711291330160_updtefile.cs" />
-    <Compile Include="Migrations\201711291330160_updtefile.Designer.cs">
-      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301029140_creatingstudentrole.cs" />
-    <Compile Include="Migrations\201711301029140_creatingstudentrole.Designer.cs">
-      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
+    <Compile Include="Migrations\201711301449346_Init.cs" />
+    <Compile Include="Migrations\201711301449346_Init.Designer.cs">
+      <DependentUpon>201711301449346_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -355,47 +303,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711231421504_initialmodel.resx">
-      <DependentUpon>201711231421504_initialmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711231523555_createdRollsInStartup.resx">
-      <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711241054525_updateRolesCourseAdded.resx">
-      <DependentUpon>201711241054525_updateRolesCourseAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711270949093_CreatingCoursetable.resx">
-      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711271010191_addingnewteacher.resx">
-      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711271628323_ModulTable.resx">
-      <DependentUpon>201711271628323_ModulTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711271942514_nav.resx">
-      <DependentUpon>201711271942514_nav.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711280818008_merge.resx">
-      <DependentUpon>201711280818008_merge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711281226548_addModul.resx">
-      <DependentUpon>201711281226548_addModul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711282244390_addstudentwithroleInDB.resx">
-      <DependentUpon>201711282244390_addstudentwithroleInDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711290530030_doublecheck.resx">
-      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711291321501_fixingModuls.resx">
-      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711291330160_updtefile.resx">
-      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301029140_creatingstudentrole.resx">
-      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711301449346_Init.resx">
+      <DependentUpon>201711301449346_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

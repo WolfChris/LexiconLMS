@@ -3,10 +3,37 @@ namespace LexiconLMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialmodel : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Courses",
+                c => new
+                    {
+                        CourseId = c.Int(nullable: false, identity: true),
+                        CourseName = c.String(),
+                        CoStartDate = c.DateTime(nullable: false),
+                        CoEndDate = c.DateTime(nullable: false),
+                        Description = c.String(),
+                    })
+                .PrimaryKey(t => t.CourseId);
+            
+            CreateTable(
+                "dbo.Moduls",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ModulName = c.String(),
+                        ModulDescription = c.String(),
+                        ModulStart = c.DateTime(nullable: false),
+                        ModulEnd = c.DateTime(nullable: false),
+                        Courseid = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Courses", t => t.Courseid, cascadeDelete: true)
+                .Index(t => t.Courseid);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -83,17 +110,21 @@ namespace LexiconLMS.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Moduls", "Courseid", "dbo.Courses");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Moduls", new[] { "Courseid" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Moduls");
+            DropTable("dbo.Courses");
         }
     }
 }
