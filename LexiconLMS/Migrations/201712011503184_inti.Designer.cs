@@ -7,13 +7,13 @@ namespace LexiconLMS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class added_Activity_and_ActivityType2 : IMigrationMetadata
+    public sealed partial class inti : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(added_Activity_and_ActivityType2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(inti));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711301558443_added_Activity_and_ActivityType2"; }
+            get { return "201712011503184_inti"; }
         }
         
         string IMigrationMetadata.Source
