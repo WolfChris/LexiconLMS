@@ -190,8 +190,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModulsController.cs" />
     <Compile Include="Controllers\MyController.cs" />
@@ -203,8 +203,30 @@
     <Compile Include="Migrations\201711301449346_Init.Designer.cs">
       <DependentUpon>201711301449346_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.cs" />
+    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.Designer.cs">
+      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.cs" />
+    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.Designer.cs">
+      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301558443_added_Activity_and_ActivityType2.cs" />
+    <Compile Include="Migrations\201711301558443_added_Activity_and_ActivityType2.Designer.cs">
+      <DependentUpon>201711301558443_added_Activity_and_ActivityType2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301612107_added_Activity_and_ActivityType3.cs" />
+    <Compile Include="Migrations\201711301612107_added_Activity_and_ActivityType3.Designer.cs">
+      <DependentUpon>201711301612107_added_Activity_and_ActivityType3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712010810487_addActivityandActivityType.cs" />
+    <Compile Include="Migrations\201712010810487_addActivityandActivityType.Designer.cs">
+      <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\ActivityType.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -251,9 +273,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -285,6 +304,11 @@
     <Content Include="Views\Moduls\Details.cshtml" />
     <Content Include="Views\Moduls\Edit.cshtml" />
     <Content Include="Views\Moduls\Index.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,6 +329,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711301449346_Init.resx">
       <DependentUpon>201711301449346_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301110265_seedingCoursesAndModules.resx">
+      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301128569_seedingCoursesAndModules1.resx">
+      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301558443_added_Activity_and_ActivityType2.resx">
+      <DependentUpon>201711301558443_added_Activity_and_ActivityType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301612107_added_Activity_and_ActivityType3.resx">
+      <DependentUpon>201711301612107_added_Activity_and_ActivityType3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712010810487_addActivityandActivityType.resx">
+      <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
