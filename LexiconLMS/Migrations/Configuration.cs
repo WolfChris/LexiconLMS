@@ -98,7 +98,7 @@ namespace LexiconLMS.Migrations
             
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             
-            string password = "Password@1234";
+            string password = "Password@1234!";
 
             //Create Role Teacher and Student if it does not exist
             var roleNames = new[] { "Teacher", "Student" };
@@ -119,8 +119,8 @@ namespace LexiconLMS.Migrations
                 if(user != "admin1@admin1.com") {
                     password = "Student@1234";
                 }
-                var admin1 = new ApplicationUser { UserName = user, Email = user, PasswordHash = password, EmailConfirmed = true };
-                UserManager.Create(admin1);
+                var admin1 = new ApplicationUser { UserName = user, Email = user };
+                UserManager.Create(admin1, password);
             }
 
             context.SaveChanges();

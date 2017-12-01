@@ -40,7 +40,7 @@ namespace LexiconLMS.Controllers
         public ActionResult Create()
         {
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName");
-            return View();
+            return PartialView();
         }
 
         // POST: Moduls/Create
@@ -58,7 +58,7 @@ namespace LexiconLMS.Controllers
             }
 
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
-            return View(modul);
+            return PartialView(modul);
         }
 
         // GET: Moduls/Edit/5

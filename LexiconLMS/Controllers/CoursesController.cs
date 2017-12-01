@@ -40,7 +40,7 @@ namespace LexiconLMS.Controllers
         // GET: Courses/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Courses/Create
@@ -57,7 +57,7 @@ namespace LexiconLMS.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(course);
+            return PartialView(course);
         }
 
         // GET: Courses/Edit/5
@@ -72,7 +72,7 @@ namespace LexiconLMS.Controllers
             {
                 return HttpNotFound();
             }
-            return View(course);
+            return PartialView(course);
         }
 
         // POST: Courses/Edit/5
@@ -88,7 +88,7 @@ namespace LexiconLMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(course);
+            return PartialView(course);
         }
 
         // GET: Courses/Delete/5
@@ -103,7 +103,7 @@ namespace LexiconLMS.Controllers
             {
                 return HttpNotFound();
             }
-            return View(course);
+            return PartialView(course);
         }
 
         // POST: Courses/Delete/5
