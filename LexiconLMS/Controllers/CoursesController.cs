@@ -37,7 +37,7 @@ namespace LexiconLMS.Controllers
                 return HttpNotFound();
             }
             if (Request.IsAjaxRequest()) return PartialView(course);
-            return View(course);
+            return View();
         }
 
         // GET: Courses/Create

@@ -70,6 +70,9 @@ namespace LexiconLMS.Models
         [Display(Name = "UserRole")]
         public string UserRole { get; set; }
 
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

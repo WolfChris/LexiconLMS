@@ -33,7 +33,7 @@
                         if (User.IsInRole("Teacher"))
                         {
                             <li> @Html.ActionLink("Add Course/Module", "Index", "Courses")</li>
-                            <li>@Html.ActionLink("Users", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                            <li>@Html.ActionLink("Users", "Index", "Users", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                         }
                     }
                 </ul>
