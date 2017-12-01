@@ -263,6 +263,10 @@
     <Compile Include="Migrations\201712010810487_addActivityandActivityType.Designer.cs">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712011054172_Altered_Activitycs.cs" />
+    <Compile Include="Migrations\201712011054172_Altered_Activitycs.Designer.cs">
+      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -414,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712010810487_addActivityandActivityType.resx">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011054172_Altered_Activitycs.resx">
+      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

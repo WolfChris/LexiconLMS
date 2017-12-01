@@ -17,7 +17,7 @@ namespace LexiconLMS.Controllers
         // GET: Activities
         public ActionResult Index()
         {
-            var activities = db.Activities.Include(a => a.ActivityType).Include(a => a.Course);
+            var activities = db.Activities.Include(a => a.ActivityType).Include(a => a.Module);
             return View(activities.ToList());
         }
 
@@ -59,7 +59,7 @@ namespace LexiconLMS.Controllers
             }
 
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.CourseId);
+            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.ModuleId);
             return View(activity);
         }
 
@@ -76,7 +76,7 @@ namespace LexiconLMS.Controllers
                 return HttpNotFound();
             }
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.CourseId);
+            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.ModuleId);
             return View(activity);
         }
 
@@ -94,7 +94,7 @@ namespace LexiconLMS.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.CourseId);
+            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName", activity.ModuleId);
             return View(activity);
         }
 
