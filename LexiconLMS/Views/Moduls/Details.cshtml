@@ -56,3 +56,8 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<h4>Activities</h4>
+@foreach (var item in ViewBag.ModulActivities)
+{
+    <div>@(item.ActivityName)</div>
+}

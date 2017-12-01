@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\ActivityTypesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -264,6 +265,10 @@
     <Compile Include="Migrations\201712010810487_addActivityandActivityType.Designer.cs">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712011054172_Altered_Activitycs.cs" />
+    <Compile Include="Migrations\201712011054172_Altered_Activitycs.Designer.cs">
+      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -290,9 +295,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\uploads\.gitattributes" />
-    <Content Include="App_Data\uploads\.gitignore" />
-    <Content Include="App_Data\uploads\Övning 15-1_ Användarupplevelse - Diskussion.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -353,10 +355,16 @@
     <Content Include="Views\Activities\Details.cshtml" />
     <Content Include="Views\Activities\Edit.cshtml" />
     <Content Include="Views\Activities\Index.cshtml" />
-    <Content Include="Views\Documents\Downloads.cshtml" />
-    <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="Views\ActivityTypes\Create.cshtml" />
+    <Content Include="Views\ActivityTypes\Delete.cshtml" />
+    <Content Include="Views\ActivityTypes\Details.cshtml" />
+    <Content Include="Views\ActivityTypes\Edit.cshtml" />
+    <Content Include="Views\ActivityTypes\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Documents\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -418,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712010810487_addActivityandActivityType.resx">
       <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011054172_Altered_Activitycs.resx">
+      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

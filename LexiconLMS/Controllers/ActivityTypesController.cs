@@ -10,116 +10,107 @@ using LexiconLMS.Models;
 
 namespace LexiconLMS.Controllers
 {
-    public class ActivitiesController : Controller
+    public class ActivityTypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Activities
+        // GET: ActivityTypes
         public ActionResult Index()
         {
-            var activities = db.Activities.Include(a => a.ActivityType).Include(a => a.Module);
-            return View(activities.ToList());
+            return View(db.ActivityTypes.ToList());
         }
 
-        // GET: Activities/Details/5
+        // GET: ActivityTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            ActivityType activityType = db.ActivityTypes.Find(id);
+            if (activityType == null)
             {
                 return HttpNotFound();
             }
-            return View(activity);
+            return View(activityType);
         }
 
-        // GET: Activities/Create
+        // GET: ActivityTypes/Create
         public ActionResult Create()
         {
-            ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
-            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName");
             return View();
         }
 
-        // POST: Activities/Create
+        // POST: ActivityTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ActivityName,ActivityStart,ActivityEnd,ActivityDescription,ActivityTypeId,ModuleId")] Activity activity)
+        public ActionResult Create([Bind(Include = "Id,ActivityTypeName,ActivityTypeDescription")] ActivityType activityType)
         {
             if (ModelState.IsValid)
             {
-                db.Activities.Add(activity);
+                db.ActivityTypes.Add(activityType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
-            return View(activity);
+            return View(activityType);
         }
 
-        // GET: Activities/Edit/5
+        // GET: ActivityTypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            ActivityType activityType = db.ActivityTypes.Find(id);
+            if (activityType == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
-            return View(activity);
+            return View(activityType);
         }
 
-        // POST: Activities/Edit/5
+        // POST: ActivityTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ActivityName,ActivityStart,ActivityEnd,ActivityDescription,ActivityTypeId,ModuleId")] Activity activity)
+        public ActionResult Edit([Bind(Include = "Id,ActivityTypeName,ActivityTypeDescription")] ActivityType activityType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(activity).State = EntityState.Modified;
+                db.Entry(activityType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
-            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
-            return View(activity);
+            return View(activityType);
         }
 
-        // GET: Activities/Delete/5
+        // GET: ActivityTypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            ActivityType activityType = db.ActivityTypes.Find(id);
+            if (activityType == null)
             {
                 return HttpNotFound();
             }
-            return View(activity);
+            return View(activityType);
         }
 
-        // POST: Activities/Delete/5
+        // POST: ActivityTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Activity activity = db.Activities.Find(id);
-            db.Activities.Remove(activity);
+            ActivityType activityType = db.ActivityTypes.Find(id);
+            db.ActivityTypes.Remove(activityType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
