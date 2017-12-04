@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<LexiconLMS.Models.Document>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Download";
 }
 
-<h2>Index</h2>
+<h2>Download</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -85,40 +85,3 @@
 }
 
 </table>
-
-@{
-    ViewBag.Title = "Upload";
-}
-<h2>Upload</h2>
-
-@section scripts {
-    <script>
-
-        $(document).ready(function () {
-            $('#btnUploadFile').on('click', function () {
-                var data = new FormData();
-                var files = $("#fileUpload").get(0).files;
-                // Add the uploaded image content to the form data collection
-                if (files.length > 0) {
-                    data.append("UploadedImage", files[0]);
-                }
-                // Make Ajax request with the contentType = false, and procesDate = false
-                var ajaxRequest = $.ajax({
-                    type: "POST",
-                    url: "Documents/Index",
-                    processData: false,
-                    contentType: false,
-
-                    data: data
-                });
-                ajaxRequest.done(function (xhr, textStatus) {
-                    // Do other operation
-                });
-            });
-        });
-    </script>
-}
-<input type="file" name="FileUpload1" id="fileUpload" /><br />
-<input id="btnUploadFile" type="button" value="Upload File" /><br />
-
-@Html.ActionLink("Documents", "Downloads")

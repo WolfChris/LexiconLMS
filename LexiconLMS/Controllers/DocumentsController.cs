@@ -7,12 +7,43 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LexiconLMS.Models;
+using System.IO;
 
 namespace LexiconLMS.Controllers
 {
     public class DocumentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult UploadIndex(HttpPostedFileBase postedFile)
+        {
+            foreach (string upload in Request.Files)
+            {
+                if (Request.Files[upload].FileName != "")
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Downloads()
+        {
+            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
+            foreach (var file in fileNames)
+            {
+                items.Add(file.Name);
+            }
+            return View(items);
+        }
+        //public FileResult Download(string ImageName)
+        //{
+        //    var FileVirtualPath = "~/App_Data/uploads/" + ImageName;
+        //    return File(FileVirtualPath, "application/force - download", Path.GetFileName(FileVirtualPath));
+        //}
 
         // GET: Documents
         public ActionResult Index()
