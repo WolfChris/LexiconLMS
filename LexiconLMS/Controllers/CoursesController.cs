@@ -30,12 +30,15 @@ namespace LexiconLMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.Courses.Find(id);
+            TempData["course"] = course.CourseName;
+            TempData["courseDescription"] = course.Description;            
+            ViewBag.CourseModuls = db.Moduls.Where(i => i.Courseid == id).ToList();
             if (course == null)
             {
                 return HttpNotFound();
             }
             if (Request.IsAjaxRequest()) return PartialView(course);
-            return View(course);
+            return View();
         }
 
         // GET: Courses/Create
