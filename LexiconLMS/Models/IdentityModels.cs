@@ -39,8 +39,11 @@ namespace LexiconLMS.Models
 
         public DbSet<Activity> Activities { get; set; }
 
-        public System.Data.Entity.DbSet<LexiconLMS.Models.ActivityType> ActivityTypes { get; set; }
+        public DbSet<ActivityType> ActivityTypes { get; set; }
 
-       
+        public DbSet<Document> Documents { get; set; }
+
+        public DbSet<DocumentType> DocumentTypes { get; set; }
+
     }
 }
