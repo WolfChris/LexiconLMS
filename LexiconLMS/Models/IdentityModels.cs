@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using LexiconLMS.Models;
 
 namespace LexiconLMS.Models
 {
@@ -44,6 +45,8 @@ namespace LexiconLMS.Models
         public DbSet<Document> Documents { get; set; }
 
         public DbSet<DocumentType> DocumentTypes { get; set; }
+
+        
 
     }
 }
