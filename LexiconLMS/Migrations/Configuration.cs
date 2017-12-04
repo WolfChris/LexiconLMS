@@ -142,7 +142,33 @@ namespace LexiconLMS.Migrations
 
 
             context.SaveChanges();
+
+            context.DocumentTypes.AddOrUpdate(
+              d => d.DocumentTypeName,
+              new DocumentType {
+                  DocumentTypeName = "Kursdokument"
+              },
+              new DocumentType {
+                  DocumentTypeName = "Inlämningsuppgift"
+              },
+              new DocumentType
+              {
+                  DocumentTypeName = "Moduldokument"
+              },
+              new DocumentType
+              {
+                  DocumentTypeName = "Aktivitetsdokument"
+              },
+              new DocumentType
+              {
+                  DocumentTypeName = "Föreläsningsunderlag"
+              }
+            );
+
+            context.SaveChanges();
+
         }
+
     }
     }
 
