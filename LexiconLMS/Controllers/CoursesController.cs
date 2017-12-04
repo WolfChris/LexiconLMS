@@ -32,7 +32,7 @@ namespace LexiconLMS.Controllers
             Course course = db.Courses.Find(id);
             //TempData["course"] = course.CourseName;
             //TempData["courseDescription"] = course.Description;            
-            //ViewBag.CourseModuls = db.Moduls.Where(i => i.Courseid == id).ToList();
+            ViewBag.CourseModuls = db.Moduls.Where(i => i.Courseid == id).ToList();
             if (course == null)
             {
                 return HttpNotFound();

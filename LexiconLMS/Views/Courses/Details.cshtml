@@ -60,3 +60,8 @@
     @Html.ActionLink("Back to List", "Index")
 
 </p>
+<h4>Modules</h4>
+@foreach (var item in ViewBag.CourseModuls)
+            {
+    <div>@(item.ModulName)</div>
+}
