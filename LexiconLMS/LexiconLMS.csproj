@@ -201,73 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711231421504_initialmodel.cs" />
-    <Compile Include="Migrations\201711231421504_initialmodel.Designer.cs">
-      <DependentUpon>201711231421504_initialmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231523555_createdRollsInStartup.cs" />
-    <Compile Include="Migrations\201711231523555_createdRollsInStartup.Designer.cs">
-      <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711270949093_CreatingCoursetable.cs" />
-    <Compile Include="Migrations\201711270949093_CreatingCoursetable.Designer.cs">
-      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711271010191_addingnewteacher.cs" />
-    <Compile Include="Migrations\201711271010191_addingnewteacher.Designer.cs">
-      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711271628323_ModulTable.cs" />
-    <Compile Include="Migrations\201711271628323_ModulTable.Designer.cs">
-      <DependentUpon>201711271628323_ModulTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711271942514_nav.cs" />
-    <Compile Include="Migrations\201711271942514_nav.Designer.cs">
-      <DependentUpon>201711271942514_nav.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711280818008_merge.cs" />
-    <Compile Include="Migrations\201711280818008_merge.Designer.cs">
-      <DependentUpon>201711280818008_merge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711290530030_doublecheck.cs" />
-    <Compile Include="Migrations\201711290530030_doublecheck.Designer.cs">
-      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711291321501_fixingModuls.cs" />
-    <Compile Include="Migrations\201711291321501_fixingModuls.Designer.cs">
-      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711291330160_updtefile.cs" />
-    <Compile Include="Migrations\201711291330160_updtefile.Designer.cs">
-      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301029140_creatingstudentrole.cs" />
-    <Compile Include="Migrations\201711301029140_creatingstudentrole.Designer.cs">
-      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.cs" />
-    <Compile Include="Migrations\201711301110265_seedingCoursesAndModules.Designer.cs">
-      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.cs" />
-    <Compile Include="Migrations\201711301128569_seedingCoursesAndModules1.Designer.cs">
-      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301558443_added_Activity_and_ActivityType2.cs" />
-    <Compile Include="Migrations\201711301558443_added_Activity_and_ActivityType2.Designer.cs">
-      <DependentUpon>201711301558443_added_Activity_and_ActivityType2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711301612107_added_Activity_and_ActivityType3.cs" />
-    <Compile Include="Migrations\201711301612107_added_Activity_and_ActivityType3.Designer.cs">
-      <DependentUpon>201711301612107_added_Activity_and_ActivityType3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712010810487_addActivityandActivityType.cs" />
-    <Compile Include="Migrations\201712010810487_addActivityandActivityType.Designer.cs">
-      <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712011054172_Altered_Activitycs.cs" />
-    <Compile Include="Migrations\201712011054172_Altered_Activitycs.Designer.cs">
-      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
+    <Compile Include="Migrations\201712011540328_newMerge5.cs" />
+    <Compile Include="Migrations\201712011540328_newMerge5.Designer.cs">
+      <DependentUpon>201712011540328_newMerge5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -366,7 +302,6 @@
     <Content Include="Views\Documents\Downloads.cshtml" />
     <Content Include="Views\Documents\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -381,56 +316,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711231421504_initialmodel.resx">
-      <DependentUpon>201711231421504_initialmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711231523555_createdRollsInStartup.resx">
-      <DependentUpon>201711231523555_createdRollsInStartup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711270949093_CreatingCoursetable.resx">
-      <DependentUpon>201711270949093_CreatingCoursetable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711271010191_addingnewteacher.resx">
-      <DependentUpon>201711271010191_addingnewteacher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711271628323_ModulTable.resx">
-      <DependentUpon>201711271628323_ModulTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711271942514_nav.resx">
-      <DependentUpon>201711271942514_nav.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711280818008_merge.resx">
-      <DependentUpon>201711280818008_merge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711290530030_doublecheck.resx">
-      <DependentUpon>201711290530030_doublecheck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711291321501_fixingModuls.resx">
-      <DependentUpon>201711291321501_fixingModuls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711291330160_updtefile.resx">
-      <DependentUpon>201711291330160_updtefile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301029140_creatingstudentrole.resx">
-      <DependentUpon>201711301029140_creatingstudentrole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301110265_seedingCoursesAndModules.resx">
-      <DependentUpon>201711301110265_seedingCoursesAndModules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301128569_seedingCoursesAndModules1.resx">
-      <DependentUpon>201711301128569_seedingCoursesAndModules1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301558443_added_Activity_and_ActivityType2.resx">
-      <DependentUpon>201711301558443_added_Activity_and_ActivityType2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301612107_added_Activity_and_ActivityType3.resx">
-      <DependentUpon>201711301612107_added_Activity_and_ActivityType3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010810487_addActivityandActivityType.resx">
-      <DependentUpon>201712010810487_addActivityandActivityType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011054172_Altered_Activitycs.resx">
-      <DependentUpon>201712011054172_Altered_Activitycs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712011540328_newMerge5.resx">
+      <DependentUpon>201712011540328_newMerge5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

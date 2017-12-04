@@ -7,13 +7,13 @@ namespace LexiconLMS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updtefile : IMigrationMetadata
+    public sealed partial class newMerge5 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updtefile));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newMerge5));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711291330160_updtefile"; }
+            get { return "201712011540328_newMerge5"; }
         }
         
         string IMigrationMetadata.Source
