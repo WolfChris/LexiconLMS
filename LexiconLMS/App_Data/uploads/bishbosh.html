@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bish-Bosh</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <body>
+        <div id="wrapper">
+
+            <div id="PageHeader">
+                <header><h1>Bish-Bosh in JS</h1></header>
+            </div>
+            
+            <div id="Bish-Bosh1">
+                <h2>Bish-Bosh 1</h2>
+                <p>
+                    Bish-Bosh listar alla tal mellan 1 och 100, men vissa undantag: Om talet är jämnt delbart
+                    med 3 listas ‘Bish’ istället för talet. Om talet är jämnt delbart med 4 listas ‘Bosh’ istället
+                    för talet. Om talet är jämt delbart med både med 3 och 4 skrivs “Bish-Bosh” istället för
+                    talet.
+
+                </p>
+                <p><button id="button1">Click me!</button></p>
+            </div>
+            
+            <script>
+                var tal = 100;
+                function clickHandler(e){
+                    for (var i = 1; i <= tal; i++) {
+
+                        if (i % 3 == 0 && i % 4 == 0) {
+                            console.log("Bish-Bosh\n");                       
+
+                        } else if (i % 4==0) {
+                            console.log("bosh\n");
+                        } else if (i % 3 == 0) {
+                            console.log("bish\n"); 
+                        } else { console.log(i); }
+
+                    }
+                }
+                var b = document.querySelector("#button1");
+                b.addEventListener("click", clickHandler);
+            </script>
+
+            <div id="Bish-Bosh2">
+                <h2>Bish-Bosh 2</h2>
+                <p>
+                    Bish-Bosh omskrivet med ett visuellt gränssnitt och presentation på en
+                    HTML-sida. Ni skall även låta en användare sätta scriptets parametrar, alltså:
+                    Vilken siffra som är Bish (tidigare 3), vilken siffra som är Bosh (tidigare 4) och hur långt
+                    loopen skall gå (tidigare 100).
+                </p>
+                <fieldset id="formData">
+                    <legend>Bish-Bosh Data:</legend>
+                    <form id="userInput">
+                        <p>Input two numbers for calculation and the number to stop at:</p>
+                        First number(bish):<br>
+                        <input type="number" id="firstNumber"><br><br>
+                        Second number(bosh):<br>
+                        <input type="number" id="secondNumber"><br /><br>
+                        Count:<br />
+                        <input type="number" id="count"><br /><br>
+                        <button id="submit" type="button">Submit</button><button id="clear" type="button">Clear</button><br /><br>
+
+                    </form>
+                </fieldset>
+            </div>
+
+            <div id="resultSpace">
+                <!--Här kommer resultaten att visas-->
+                <h2>Results:</h2>
+                <p id="checkResult"></p>
+                <p id="showResults"></p>
+            </div>
+
+            <div id="PageFooter">
+                <footer>
+                    <p>&copy; Christopher Wolf 2017</p>
+                    <script src="bishbosh.js"></script>
+                </footer>
+            </div>
+        </div>
+    </body>
+
+
+
+</html>
