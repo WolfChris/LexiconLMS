@@ -81,12 +81,15 @@ namespace LexiconLMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FirstName,LastName,Email,PhoneNumber,UserName")] ApplicationUser applicationUser)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,UserName")] ApplicationUser applicationUser)
         {
            
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                db.Entry(applicationUser).State = EntityState.Modified;
+                
+                var entry = db.Entry(applicationUser);
+
+                entry.State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
