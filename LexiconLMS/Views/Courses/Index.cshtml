@@ -13,6 +13,7 @@
                     @foreach (var item in Model)
                     {
                         @Ajax.ActionLink(item.CourseName, "Details", new { id = item.CourseId }, new AjaxOptions { UpdateTargetId = "workspace" }, new { @class="list-group-item" })
+
                     }
                 </div>
         </div>
@@ -24,8 +25,6 @@
 
 
             </div>
-
-           
 
             @*<table class="table">
                 <tr>
