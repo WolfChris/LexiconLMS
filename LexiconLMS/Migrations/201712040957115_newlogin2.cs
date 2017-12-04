@@ -3,7 +3,7 @@ namespace LexiconLMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class newMerge5 : DbMigration
+    public partial class newlogin2 : DbMigration
     {
         public override void Up()
         {
