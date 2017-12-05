@@ -27,13 +27,18 @@ namespace LexiconLMS.Controllers
                     string filename = Path.GetFileName(Request.Files[upload].FileName);
                     Request.Files[upload].SaveAs(Path.Combine(path, filename));
 
+
+                    
                     int modulId = Convert.ToInt32(HttpContext.Request.Params["modulId"]);
+                    int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"]);
+
+                    //int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"].ToString());
                     db.Documents.Add(new Document
                     {
                         Name = filename,
                         TimeStamp = DateTime.Now,
                         FileName = filename,
-                        DocumentTypeId = 1,
+                        DocumentTypeId = documentTypeId,
                         ModulId = modulId,
                         UserId = User.Identity.GetUserId()
 
@@ -72,6 +77,7 @@ namespace LexiconLMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ViewBag.ModulActivities = db.Activities.Where(p => p.ModuleId == id).ToList();
+            ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
             Modul modul = db.Moduls.Find(id);
             if (modul == null)
             {
