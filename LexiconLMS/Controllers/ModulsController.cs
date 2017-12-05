@@ -7,12 +7,55 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LexiconLMS.Models;
+using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
 {
     public class ModulsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult UploadIndex(HttpPostedFileBase postedFile)
+        {
+            foreach (string upload in Request.Files)
+            {
+
+                if (Request.Files[upload].FileName != "")
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+
+                    int modulId = Convert.ToInt32(HttpContext.Request.Params["modulId"]);
+                    db.Documents.Add(new Document
+                    {
+                        Name = filename,
+                        TimeStamp = DateTime.Now,
+                        FileName = filename,
+                        DocumentTypeId = 1,
+                        ModulId = modulId,
+                        UserId = User.Identity.GetUserId()
+
+                    });
+
+                    db.SaveChanges();
+
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Downloads()
+        {
+            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
+            foreach (var file in fileNames)
+            {
+                items.Add(file.Name);
+            }
+            return View(items);
+        }
 
         // GET: Moduls
         public ActionResult Index()
