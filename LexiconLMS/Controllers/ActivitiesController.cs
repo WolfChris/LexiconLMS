@@ -66,6 +66,7 @@ namespace LexiconLMS.Controllers
             {
                 return HttpNotFound();
             }
+            if (Request.IsAjaxRequest()) return PartialView(activity);
             return View(activity);
         }
 
