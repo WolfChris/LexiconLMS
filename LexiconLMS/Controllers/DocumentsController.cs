@@ -19,6 +19,8 @@ namespace LexiconLMS.Controllers
         {
             foreach (string upload in Request.Files)
             {
+                
+                var test = HttpContext.Request.Params["testname"];
                 if (Request.Files[upload].FileName != "")
                 {
                     string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
