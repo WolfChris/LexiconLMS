@@ -128,7 +128,7 @@ namespace LexiconLMS.Migrations
                 a => a.ActivityName,
                 new Activity
                 {
-                    ActivityName = "Föreläsning 1",
+                    ActivityName = "Föreläsning m4-1",
                     ActivityStart = Convert.ToDateTime("2018-04-01"),
                     ActivityEnd = Convert.ToDateTime("2018-04-01"),
                     ActivityDescription = "Intro to Apache",
@@ -137,7 +137,7 @@ namespace LexiconLMS.Migrations
                 },
                 new Activity
                 {
-                    ActivityName = "E-Learning 1",
+                    ActivityName = "E-Learning m4-1",
                     ActivityStart = Convert.ToDateTime("2018-04-02"),
                     ActivityEnd = Convert.ToDateTime("2018-04-02"),
                     ActivityDescription = "Practical Apache Applications",
@@ -146,7 +146,7 @@ namespace LexiconLMS.Migrations
                 },
                  new Activity
                  {
-                     ActivityName = "Föreläsning 1",
+                     ActivityName = "Föreläsning m3-1",
                      ActivityStart = Convert.ToDateTime("2018-02-10"),
                      ActivityEnd = Convert.ToDateTime("2018-02-10"),
                      ActivityDescription = "Intro to Javascript",
@@ -155,7 +155,7 @@ namespace LexiconLMS.Migrations
                  },
                 new Activity
                 {
-                    ActivityName = "E-Learning 1",
+                    ActivityName = "E-Learning m3-1",
                     ActivityStart = Convert.ToDateTime("2018-02-11"),
                     ActivityEnd = Convert.ToDateTime("2018-02-11"),
                     ActivityDescription = "Practical Javascript Applications",
@@ -165,7 +165,7 @@ namespace LexiconLMS.Migrations
 
                 new Activity
                 {
-                    ActivityName = "Föreläsning 1",
+                    ActivityName = "Föreläsning m2-1",
                     ActivityStart = Convert.ToDateTime("2018-04-15"),
                     ActivityEnd = Convert.ToDateTime("2018-04-15"),
                     ActivityDescription = "Intro to jQuery",
@@ -174,7 +174,7 @@ namespace LexiconLMS.Migrations
                 },
                 new Activity
                 {
-                    ActivityName = "E-Learning 1",
+                    ActivityName = "E-Learning m2-1",
                     ActivityStart = Convert.ToDateTime("2018-04-16"),
                     ActivityEnd = Convert.ToDateTime("2018-04-16"),
                     ActivityDescription = "Practical jQuery Applications",
@@ -184,7 +184,7 @@ namespace LexiconLMS.Migrations
 
                 new Activity
                 {
-                    ActivityName = "Föreläsning 1",
+                    ActivityName = "Föreläsning m1-1",
                     ActivityStart = Convert.ToDateTime("2018-02-02"),
                     ActivityEnd = Convert.ToDateTime("2018-02-02"),
                     ActivityDescription = "Intro to Bootstrap",
@@ -193,7 +193,7 @@ namespace LexiconLMS.Migrations
                 },
                 new Activity
                 {
-                    ActivityName = "E-Learning 1",
+                    ActivityName = "E-Learning m1-1",
                     ActivityStart = Convert.ToDateTime("2018-02-03"),
                     ActivityEnd = Convert.ToDateTime("2018-02-03"),
                     ActivityDescription = "Practical Bootstrap Applications",
