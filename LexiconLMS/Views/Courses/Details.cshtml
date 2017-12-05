@@ -61,7 +61,20 @@
 
 </p>
 <h4>Modules</h4>
-@foreach (var item in ViewBag.CourseModuls)
+<div class="list-group">
+    @foreach (var item in ViewBag.CourseModuls)
             {
-    <div>@(item.ModulName)</div>
-}
+        @Ajax.ActionLink((string)item.ModulName, // <-- Text to display
+                 "Details", // <-- Action Method Name
+                 "Moduls", // <--- Controller name
+                 new { id = item.Id },
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 },
+                 new { @class = "list-group-item" }
+                 )
+    }
+</div>

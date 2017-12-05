@@ -34,6 +34,7 @@ namespace LexiconLMS.Controllers
             {
                 return HttpNotFound();
             }
+            if (Request.IsAjaxRequest()) return PartialView(modul);
             return View(modul);
         }
 
