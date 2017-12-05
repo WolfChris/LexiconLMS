@@ -215,6 +215,14 @@
     <Compile Include="Migrations\201712041444294_updateSeed1.Designer.cs">
       <DependentUpon>201712041444294_updateSeed1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712050840338_canged_UserId_to_string_in_documents.cs" />
+    <Compile Include="Migrations\201712050840338_canged_UserId_to_string_in_documents.Designer.cs">
+      <DependentUpon>201712050840338_canged_UserId_to_string_in_documents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051357415_documents_deadline_nullable.cs" />
+    <Compile Include="Migrations\201712051357415_documents_deadline_nullable.Designer.cs">
+      <DependentUpon>201712051357415_documents_deadline_nullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -349,6 +357,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712041444294_updateSeed1.resx">
       <DependentUpon>201712041444294_updateSeed1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712050840338_canged_UserId_to_string_in_documents.resx">
+      <DependentUpon>201712050840338_canged_UserId_to_string_in_documents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051357415_documents_deadline_nullable.resx">
+      <DependentUpon>201712051357415_documents_deadline_nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,8 +11,8 @@ namespace LexiconLMS.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime TimeStamp { get; set; }
-        public int UserId { get; set; }
-        public DateTime Deadline { get; set; }
+        public string UserId { get; set; }
+        public DateTime? Deadline { get; set; }
         public string FileName { get; set; }
 
         public int DocumentTypeId { get; set; }

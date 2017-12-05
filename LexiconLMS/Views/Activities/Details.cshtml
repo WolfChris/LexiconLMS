@@ -60,17 +60,25 @@
 
     </dl>
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@{
+    ViewBag.Title = "Upload";
+}
 <h2>Upload</h2>
+
 
 @section scripts {
     <script>
 
         $(document).ready(function () {
             $('#btnUploadFile').on('click', function () {
+                //alert("Jävlar!");
                 var data = new FormData();
                 var files = $("#fileUpload").get(0).files;
-                data.append('ActivityId', '@Model.Id');
-
+                data.append('activityId', '@Model.Id');
                 // Add the uploaded image content to the form data collection
                 if (files.length > 0) {
                     data.append("UploadedImage", files[0]);
@@ -78,24 +86,22 @@
                 // Make Ajax request with the contentType = false, and procesDate = false
                 var ajaxRequest = $.ajax({
                     type: "POST",
-                    url: "Activities/UploadIndex",
+                    //url: "Activities/UploadIndex",
+                    url: '@Url.Action("UploadIndex", "Activities")',
                     processData: false,
                     contentType: false,
 
                     data: data
                 });
                 ajaxRequest.done(function (xhr, textStatus) {
-                    alert("Filen uppladdad!");
                     // Do other operation
                 });
             });
         });
     </script>
 }
-<input type="file" name="FileUpload1" id="fileUpload" /><br />
+<input type="file" name="FileUpload" id="fileUpload" /><br />
 <input id="btnUploadFile" type="button" value="Upload File" /><br />
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@Html.ActionLink("Documents", "Downloads")
+

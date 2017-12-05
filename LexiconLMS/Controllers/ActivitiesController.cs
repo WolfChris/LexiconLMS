@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LexiconLMS.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
 {
@@ -19,9 +20,7 @@ namespace LexiconLMS.Controllers
         {
             foreach (string upload in Request.Files)
             {
-
-                
-
+            
                 if (Request.Files[upload].FileName != "")
                 {
                     string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
@@ -29,7 +28,17 @@ namespace LexiconLMS.Controllers
                     Request.Files[upload].SaveAs(Path.Combine(path, filename));
 
                     int activityId = Convert.ToInt32(HttpContext.Request.Params["activityId"]);
+                    db.Documents.Add(new Document {
+                        Name = filename,
+                        TimeStamp = DateTime.Now,
+                        FileName = filename,
+                        DocumentTypeId = 1,
+                        ActivityId = activityId,
+                        UserId = User.Identity.GetUserId()
 
+                });
+
+                    db.SaveChanges();
 
                 }
             }
