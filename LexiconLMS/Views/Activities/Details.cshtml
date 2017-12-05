@@ -70,12 +70,12 @@
 <h2>Upload</h2>
 
 
-@section scripts {
+
     <script>
 
         $(document).ready(function () {
             $('#btnUploadFile').on('click', function () {
-                //alert("Jävlar!");
+                alert("Jävlar!");
                 var data = new FormData();
                 var files = $("#fileUpload").get(0).files;
                 data.append('activityId', '@Model.Id');
@@ -87,7 +87,7 @@
                 var ajaxRequest = $.ajax({
                     type: "POST",
                     //url: "Activities/UploadIndex",
-                    url: '@Url.Action("UploadIndex", "Activities")',
+                    url: '@Url.Action("UploadIndex", "Activities")',                    
                     processData: false,
                     contentType: false,
 
@@ -99,7 +99,7 @@
             });
         });
     </script>
-}
+
 <input type="file" name="FileUpload" id="fileUpload" /><br />
 <input id="btnUploadFile" type="button" value="Upload File" /><br />
 
