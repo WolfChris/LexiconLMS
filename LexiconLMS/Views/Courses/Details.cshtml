@@ -122,3 +122,8 @@
     @Html.ActionLink("Documents", "Downloads")
 
 }
+@foreach (var item in ViewBag.UserCourse)
+{
+
+    <div>@item.UserName</div>
+}

@@ -66,7 +66,7 @@ namespace LexiconLMS.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-         
+            
             return View(db.Courses.ToList());
         }
 
@@ -80,6 +80,7 @@ namespace LexiconLMS.Controllers
             Course course = db.Courses.Find(id);
             //TempData["course"] = course.CourseName;
             //TempData["courseDescription"] = course.Description;            
+            ViewBag.UserCourse = db.Users.Where(u => u.CourseId == id).ToList();
             ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
             ViewBag.CourseModuls = db.Moduls.Where(i => i.Courseid == id).ToList();
             if (course == null)
