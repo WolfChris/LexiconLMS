@@ -179,7 +179,7 @@ namespace LexiconLMS.Controllers
         {
             var allRoles = (new ApplicationDbContext()).Roles.OrderBy(r => r.Name).ToList().Select(r =>
               new SelectListItem { Value = r.Name.ToString(), Text = r.Name }).ToList();
-
+            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
             ViewBag.Roles = allRoles;
             return View();
 
@@ -195,7 +195,7 @@ namespace LexiconLMS.Controllers
             if (ModelState.IsValid)
             {
 
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LastName = model.LastName, FirstName= model.FirstName};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LastName = model.LastName, FirstName= model.FirstName, CourseId= Convert.ToInt32(HttpContext.Request.Params["courseId"]) };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
