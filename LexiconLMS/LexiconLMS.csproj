@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201712051418396_newMergesDocsAndLinks.Designer.cs">
       <DependentUpon>201712051418396_newMergesDocsAndLinks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712061406282_added_field_courseid_to_users.cs" />
+    <Compile Include="Migrations\201712061406282_added_field_courseid_to_users.Designer.cs">
+      <DependentUpon>201712061406282_added_field_courseid_to_users.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -370,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051418396_newMergesDocsAndLinks.resx">
       <DependentUpon>201712051418396_newMergesDocsAndLinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712061406282_added_field_courseid_to_users.resx">
+      <DependentUpon>201712061406282_added_field_courseid_to_users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

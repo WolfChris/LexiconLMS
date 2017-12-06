@@ -12,6 +12,7 @@ namespace LexiconLMS.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int CourseId { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
