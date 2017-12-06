@@ -26,13 +26,13 @@ namespace LexiconLMS.Controllers
                     string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
                     string filename = Path.GetFileName(Request.Files[upload].FileName);
                     Request.Files[upload].SaveAs(Path.Combine(path, filename));
-
+                    int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"]);
                     int activityId = Convert.ToInt32(HttpContext.Request.Params["activityId"]);
                     db.Documents.Add(new Document {
                         Name = filename,
                         TimeStamp = DateTime.Now,
                         FileName = filename,
-                        DocumentTypeId = 1,
+                        DocumentTypeId = documentTypeId,
                         ActivityId = activityId,
                         UserId = User.Identity.GetUserId()
 
@@ -70,6 +70,7 @@ namespace LexiconLMS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
             Activity activity = db.Activities.Find(id);
             if (activity == null)
             {
