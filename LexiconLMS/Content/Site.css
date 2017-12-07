@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 70px;
     padding-bottom: 20px;
-    background-color: #333333;
+
 }
 
 footer {
@@ -59,9 +59,9 @@ textarea {
 }
 
 .main {
+    /*Why?????????? does the width work like this??????????*/
     background-color: white;
-    
-    max-width: 100%;
+    width: 2000px;
 }
 
 .logo-gif{
