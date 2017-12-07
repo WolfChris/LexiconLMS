@@ -59,9 +59,11 @@ textarea {
 }
 
 .main {
-    /*Why?????????? does the width work like this??????????*/
     background-color: white;
-    width: 2000px;
+}
+
+#main-container {
+    width: 100%;
 }
 
 .logo-gif{
