@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LexiconLMS.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,13 @@ namespace LexiconLMS.Controllers
     [Authorize(Roles ="Student")]
     public class StudentController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Student
         public ActionResult Index()
         {
+           
+
             return View();
         }
     }

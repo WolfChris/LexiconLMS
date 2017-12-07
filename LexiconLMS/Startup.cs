@@ -24,13 +24,13 @@ namespace LexiconLMS
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
             //    // In Startup iam creating first Admin Role and creating a default Admin User    
-            if (!roleManager.RoleExists("Teacher"))
-            {
+            //if (!roleManager.RoleExists("Teacher"))
+            //{
 
-                //first we create Admin rool
-                var role = new IdentityRole();
-                role.Name = "Teacher";
-                roleManager.Create(role);
+            //    //first we create Admin rool
+            //    var role = new IdentityRole();
+            //    role.Name = "Teacher";
+            //    roleManager.Create(role);
 
                 //Here we create a Admin super user who will maintain the website
 
@@ -67,7 +67,6 @@ namespace LexiconLMS
 
         }
     }
-}
 
         // creating Creating Student role    
         //if (!roleManager.RoleExists("Student"))
