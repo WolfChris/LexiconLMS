@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LexiconLMS.Models.Activity>
+﻿@model IEnumerable<LexiconLMS.Models.Document>
 
 @{
     ViewBag.Title = "Index";
@@ -12,22 +12,34 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityType.ActivityTypeName)
+            @Html.DisplayNameFor(model => model.Activity.ActivityName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Module.ModulName)
+            @Html.DisplayNameFor(model => model.Course.CourseName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityName)
+            @Html.DisplayNameFor(model => model.DocumentType.DocumentTypeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityStart)
+            @Html.DisplayNameFor(model => model.Modul.ModulName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityEnd)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityDescription)
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
         </th>
         <th></th>
     </tr>
@@ -35,22 +47,34 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ActivityType.ActivityTypeName)
+            @Html.DisplayFor(modelItem => item.Activity.ActivityName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Module.ModulName)
+            @Html.DisplayFor(modelItem => item.Course.CourseName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ActivityName)
+            @Html.DisplayFor(modelItem => item.DocumentType.DocumentTypeName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ActivityStart)
+            @Html.DisplayFor(modelItem => item.Modul.ModulName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ActivityEnd)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ActivityDescription)
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
@@ -59,7 +83,9 @@
         </td>
     </tr>
 }
+
 </table>
+
 @{
     ViewBag.Title = "Upload";
 }
@@ -80,7 +106,7 @@
                 // Make Ajax request with the contentType = false, and procesDate = false
                 var ajaxRequest = $.ajax({
                     type: "POST",
-                    url: "Activities/UploadIndex",
+                    url: "Documents/UploadIndex",
                     processData: false,
                     contentType: false,
 

@@ -1,29 +1,48 @@
-﻿@model List<LexiconLMS.Models.Modul>
-<hr />
+﻿@model LexiconLMS.Models.Course
+
 @{
-    ViewBag.Title = "List Of Modules in the course";
+    ViewBag.Title = "Course Details";
 }
 
 <h3>Details</h3>
 
 <div>
-    <h4> @TempData["course"] Course</h4>
-
-    <h5>@TempData["courseDescription"]</h5>
-
+    <h4>@Html.DisplayFor(model => model.CourseName)</h4>
     <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
 
-    <h4>Moduls:-</h4>
-    <ul>
-    
-        @foreach (var item in Model)
-        {
-            <li>
-                <a href="~/Moduls/Details/@item.Id">@item.ModulName</a>
-            </li>
-        }
-    </ul>
-    <hr />
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
 </div>
 <p>
     @Ajax.ActionLink("Edit", // <-- Text to display
@@ -38,11 +57,73 @@
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.CourseId })*@ |
 
 
-    @Html.ActionLink("Back to List", "Index" )
+    @Html.ActionLink("Back to List", "Index")
 
 </p>
 <h4>Modules</h4>
-@foreach (var item in ViewBag.CourseModuls)
+<div class="list-group">
+    @foreach (var item in ViewBag.CourseModuls)
             {
-    <div>@(item.ModulName)</div>
+        @Ajax.ActionLink((string)item.ModulName, // <-- Text to display
+                 "Details", // <-- Action Method Name
+                 "Moduls", // <--- Controller name
+                 new { id = item.Id },
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 },
+                 new { @class = "list-group-item" }
+                 )
+    }
+</div>
+<h2>Upload</h2>
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+
+    <script>
+
+        $(document).ready(function () {
+            $('#btnUploadFile').on('click', function () {
+                //alert("Jävlar!");
+                var dti = $('#DocumentTypeId').val();
+                //alert(dti);
+                var data = new FormData();
+                var files = $("#fileUpload").get(0).files;
+                data.append('courseId', '@Model.CourseId');
+                data.append('documentTypeId', dti);
+                // Add the uploaded image content to the form data collection
+                if (files.length > 0) {
+                    data.append("UploadedImage", files[0]);
+                }
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST",
+                    //url: "Activities/UploadIndex",
+                    url: '@Url.Action("UploadIndex", "Courses")',
+                    processData: false,
+                    contentType: false,
+
+                    data: data
+                });
+                alert("Filen uppladdad!");
+                ajaxRequest.done(function (xhr, textStatus) {
+                    // Do other operation
+                });
+        });
+    });
+    </script>
+
+    <input type="file" name="FileUpload" id="fileUpload" /><br />
+    <input id="btnUploadFile" type="button" value="Upload File" /><br />
+
+    @Html.ActionLink("Documents", "Downloads")
+
+}
+@foreach (var item in ViewBag.UserCourse)
+{
+
+    <div>@item.UserName</div>
 }

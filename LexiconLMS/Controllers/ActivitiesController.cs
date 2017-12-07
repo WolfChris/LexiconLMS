@@ -7,12 +7,54 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LexiconLMS.Models;
+using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
 {
     public class ActivitiesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult UploadIndex(HttpPostedFileBase postedFile)
+        {
+            foreach (string upload in Request.Files)
+            {
+            
+                if (Request.Files[upload].FileName != "")
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+                    int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"]);
+                    int activityId = Convert.ToInt32(HttpContext.Request.Params["activityId"]);
+                    db.Documents.Add(new Document {
+                        Name = filename,
+                        TimeStamp = DateTime.Now,
+                        FileName = filename,
+                        DocumentTypeId = documentTypeId,
+                        ActivityId = activityId,
+                        UserId = User.Identity.GetUserId()
+
+                });
+
+                    db.SaveChanges();
+
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Downloads()
+        {
+            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
+            foreach (var file in fileNames)
+            {
+                items.Add(file.Name);
+            }
+            return View(items);
+        }
 
         // GET: Activities
         public ActionResult Index()
@@ -28,11 +70,13 @@ namespace LexiconLMS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
             Activity activity = db.Activities.Find(id);
             if (activity == null)
             {
                 return HttpNotFound();
             }
+            if (Request.IsAjaxRequest()) return PartialView(activity);
             return View(activity);
         }
 

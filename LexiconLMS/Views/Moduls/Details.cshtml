@@ -1,7 +1,7 @@
 ﻿@model LexiconLMS.Models.Modul
 <hr/>
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Module Details";
 }
 
 <h2>Module Details</h2>
@@ -57,7 +57,70 @@
     @Html.ActionLink("Back to List", "Index")
 </p>
 <h4>Activities</h4>
-@foreach (var item in ViewBag.ModulActivities)
+@*@foreach (var item in ViewBag.ModulActivities)
 {
     <div>@(item.ActivityName)</div>
+}*@
+
+<div class="list-group">
+    @foreach (var item in ViewBag.ModulActivities)
+            {
+        @Ajax.ActionLink((string)item.ActivityName, // <-- Text to display
+                 "Details", // <-- Action Method Name
+                 "Activities", // <--- Controller name
+                 new { id = item.Id },
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 },
+                 new { @class = "list-group-item" }
+                 )
+    }
+</div>
+
+<h2>Upload</h2>
+@using (Html.BeginForm())
+{
+@Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+
+<script>
+
+        $(document).ready(function () {
+            $('#btnUploadFile').on('click', function () {
+                //alert("Jävlar!");
+                var dti = $('#DocumentTypeId').val();
+                //alert(dti);
+                var data = new FormData();
+                var files = $("#fileUpload").get(0).files;
+                data.append('modulId', '@Model.Id');
+                data.append('documentTypeId', dti);
+                // Add the uploaded image content to the form data collection
+                if (files.length > 0) {
+                    data.append("UploadedImage", files[0]);
+                }
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST",
+                    //url: "Activities/UploadIndex",
+                    url: '@Url.Action("UploadIndex", "Moduls")',
+                    processData: false,
+                    contentType: false,
+
+                    data: data
+                });
+                alert("Filen uppladdad!");
+                ajaxRequest.done(function (xhr, textStatus) {
+                    // Do other operation
+                });
+        });
+    });
+</script>
+
+<input type="file" name="FileUpload" id="fileUpload" /><br />
+<input id="btnUploadFile" type="button" value="Upload File" /><br />
+
+@Html.ActionLink("Documents", "Downloads")
+
 }

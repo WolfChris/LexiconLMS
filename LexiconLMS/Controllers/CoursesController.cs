@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LexiconLMS.Models;
+using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
 {
@@ -15,9 +17,56 @@ namespace LexiconLMS.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult UploadIndex(HttpPostedFileBase postedFile)
+        {
+            foreach (string upload in Request.Files)
+            {
+
+                if (Request.Files[upload].FileName != "")
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+
+
+
+                    int courseId = Convert.ToInt32(HttpContext.Request.Params["courseId"]);
+                    int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"]);
+
+                    //int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"].ToString());
+                    db.Documents.Add(new Document
+                    {
+                        Name = filename,
+                        TimeStamp = DateTime.Now,
+                        FileName = filename,
+                        DocumentTypeId = documentTypeId,
+                        CourseId = courseId,
+                        UserId = User.Identity.GetUserId()
+
+                    });
+
+                    db.SaveChanges();
+
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Downloads()
+        {
+            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
+            foreach (var file in fileNames)
+            {
+                items.Add(file.Name);
+            }
+            return View(items);
+        }
+
         // GET: Courses
         public ActionResult Index()
         {
+            
             return View(db.Courses.ToList());
         }
 
@@ -29,15 +78,17 @@ namespace LexiconLMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.Courses.Find(id);
-            TempData["course"] = course.CourseName;
-            TempData["courseDescription"] = course.Description;            
+            //TempData["course"] = course.CourseName;
+            //TempData["courseDescription"] = course.Description;            
+            ViewBag.UserCourse = db.Users.Where(u => u.CourseId == id).ToList();
+            ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
             ViewBag.CourseModuls = db.Moduls.Where(i => i.Courseid == id).ToList();
             if (course == null)
             {
                 return HttpNotFound();
             }
             if (Request.IsAjaxRequest()) return PartialView(course);
-            return View();
+            return View(course);
         }
 
         // GET: Courses/Create

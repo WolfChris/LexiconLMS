@@ -3,7 +3,7 @@ namespace LexiconLMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class afterMergewíthOla : DbMigration
+    public partial class updateSeed1 : DbMigration
     {
         public override void Up()
         {

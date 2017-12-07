@@ -7,12 +7,60 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LexiconLMS.Models;
+using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
 {
     public class ModulsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult UploadIndex(HttpPostedFileBase postedFile)
+        {
+            foreach (string upload in Request.Files)
+            {
+
+                if (Request.Files[upload].FileName != "")
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+
+
+                    
+                    int modulId = Convert.ToInt32(HttpContext.Request.Params["modulId"]);
+                    int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"]);
+
+                    //int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"].ToString());
+                    db.Documents.Add(new Document
+                    {
+                        Name = filename,
+                        TimeStamp = DateTime.Now,
+                        FileName = filename,
+                        DocumentTypeId = documentTypeId,
+                        ModulId = modulId,
+                        UserId = User.Identity.GetUserId()
+
+                    });
+
+                    db.SaveChanges();
+
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Downloads()
+        {
+            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
+            foreach (var file in fileNames)
+            {
+                items.Add(file.Name);
+            }
+            return View(items);
+        }
 
         // GET: Moduls
         public ActionResult Index()
@@ -29,11 +77,13 @@ namespace LexiconLMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ViewBag.ModulActivities = db.Activities.Where(p => p.ModuleId == id).ToList();
+            ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
             Modul modul = db.Moduls.Find(id);
             if (modul == null)
             {
                 return HttpNotFound();
             }
+            if (Request.IsAjaxRequest()) return PartialView(modul);
             return View(modul);
         }
 

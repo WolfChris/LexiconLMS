@@ -18,6 +18,12 @@ namespace LexiconLMS
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Courses", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+              name: "Activities",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Activities", action = "Index", id = UrlParameter.Optional }
+                );
+
         }
     }
 }

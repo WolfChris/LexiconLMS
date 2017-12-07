@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using LexiconLMS.Models;
 
 namespace LexiconLMS.Models
 {
@@ -11,6 +12,7 @@ namespace LexiconLMS.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int CourseId { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -39,8 +41,13 @@ namespace LexiconLMS.Models
 
         public DbSet<Activity> Activities { get; set; }
 
-        public System.Data.Entity.DbSet<LexiconLMS.Models.ActivityType> ActivityTypes { get; set; }
+        public DbSet<ActivityType> ActivityTypes { get; set; }
 
-       
+        public DbSet<Document> Documents { get; set; }
+
+        public DbSet<DocumentType> DocumentTypes { get; set; }
+
+        
+
     }
 }

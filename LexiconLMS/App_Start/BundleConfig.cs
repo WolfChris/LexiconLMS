@@ -10,6 +10,7 @@ namespace LexiconLMS
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        
                         "~/Scripts/jquery.unobtrusive-ajax.*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

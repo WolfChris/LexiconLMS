@@ -40,7 +40,7 @@ namespace LexiconLMS.Controllers
 
         // GET: Users/Create
         public ActionResult Create()
-        {
+        {            
             return RedirectToAction("Register", "Account");
         }
 
@@ -68,6 +68,7 @@ namespace LexiconLMS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
             ApplicationUser applicationUser = db.Users.Find(id);
             if (applicationUser == null)
             {
@@ -81,12 +82,15 @@ namespace LexiconLMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FirstName,LastName,Email,PhoneNumber,UserName")] ApplicationUser applicationUser)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,UserName,CourseId")] ApplicationUser applicationUser)
         {
            
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                db.Entry(applicationUser).State = EntityState.Modified;
+                
+                var entry = db.Entry(applicationUser);
+
+                entry.State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
