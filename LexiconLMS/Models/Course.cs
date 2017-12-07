@@ -17,5 +17,6 @@ namespace LexiconLMS.Models
        
 
         public IEnumerable<Modul> Moduls { get; set; }
+        public IEnumerable<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
