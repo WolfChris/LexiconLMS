@@ -1,10 +1,15 @@
 ﻿@model LexiconLMS.Models.Modul
 
 @{
-    ViewBag.Title = "Create";
+    if (ViewData.ContainsKey("courseName") == false)
+    {
+        <h2>Ny modul</h2>
+    }else { 
+        <h2>Ny modul till kursen @ViewData["courseName"]</h2>
+    }
 }
 
-<h2>Create</h2>
+
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +17,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Modul</h4>
+        @*<h4>Modul</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -46,8 +51,8 @@
                 @Html.ValidationMessageFor(model => model.ModulEnd, "", new { @class = "text-danger" })
             </div>
         </div>
-@{
-    if (String.IsNullOrEmpty(ViewData["CourseId"].ToString())){ 
+@{ 
+    if (ViewData.ContainsKey("courseName") == false){ 
         <div class="form-group">
             @Html.LabelFor(model => model.Courseid, "Courseid", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -55,11 +60,19 @@
                 @Html.ValidationMessageFor(model => model.Courseid, "", new { @class = "text-danger" })
             </div>
         </div>
-}
+    }
+    else
+    {
+        var Courseid = ViewData["Courseid"];
+        @Html.Hidden("Courseid")        
+        <input type="hidden" id="txtCoStartDate" value='@ViewData["coStartDate"]' />
+        <input type="hidden" id="txtCoEndDate" value='@ViewData["coEndDate"]' />
+
+    }
 }
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" id="btnSubmit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -70,6 +83,36 @@
     @Html.ActionLink("Back to List", "Index", "Courses")
 </div>
 
+
+
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+<script>
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+
+            //alert("Heja");
+            var coStartDate = $("#txtCoStartDate").val();
+            var coEndDate = $("#txtCoEndDate").val();
+            var modulStart = $("#ModulStart").val();
+            var modulEnd = $("#ModulEnd").val();
+
+            if (modulStart < coStartDate || modulStart > coEndDate || modulEnd < coStartDate || modulEnd > coEndDate) {
+                alert("Satan vad datum var fel!");
+                return false;
+            } else {
+                alert("Bravo!!!");
+            }
+
+
+
+        });
+
+    });
+</script>
+
+
 }
