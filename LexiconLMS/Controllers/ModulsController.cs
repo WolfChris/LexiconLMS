@@ -88,9 +88,21 @@ namespace LexiconLMS.Controllers
         }
 
         // GET: Moduls/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName");
+            if (id == null) { 
+            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName");                        
+            
+            }
+            else
+            {
+                Course course = db.Courses.Find(id);
+                ViewData["courseId"] = id;
+                ViewData["courseName"] = course.CourseName;
+                ViewData["coStartDate"] = course.CoStartDate;
+                ViewData["coEndDate"] = course.CoEndDate;
+
+            }
             return PartialView();
         }
 
