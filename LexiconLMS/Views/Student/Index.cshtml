@@ -1,7 +1,18 @@
-﻿
+﻿@model LexiconLMS.Models.Course
+
 @{
     ViewBag.Title = "Index";
 }
+<hr />
 
-<h2>You are logged in as Student</h2>
+<h3> Hallo @TempData["name"]!</h3>
 
+
+<h3>Your course:- @Html.DisplayFor(modelItem => Model.CourseName)<br /></h3>
+        
+            @Html.DisplayNameFor(model => model.CoStartDate) : @Html.DisplayFor(modelItem => Model.CoStartDate)<br />
+       
+            @Html.DisplayNameFor(model => model.CoEndDate)  : @Html.DisplayFor(modelItem => Model.CoEndDate)<br />
+        
+            @Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(modelItem => Model.Description)
+        
