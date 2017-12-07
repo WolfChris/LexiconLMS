@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using LexiconLMS.Models;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace LexiconLMS.Models
 {
@@ -12,8 +14,11 @@ namespace LexiconLMS.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int CourseId { get; set; }
 
+       
+        public int? CourseId { get; set; }
+       
+       
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -34,6 +39,7 @@ namespace LexiconLMS.Models
         {
             return new ApplicationDbContext();
         }
+        
 
         public DbSet<Course> Courses { get; set; }
 
