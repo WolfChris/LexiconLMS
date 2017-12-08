@@ -36,6 +36,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.ActivityDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ActivityDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ActivityDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.ActivityStart, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ActivityStart, new { htmlAttributes = new { @class = "form-control" } })
@@ -48,20 +56,11 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ActivityEnd, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ActivityEnd, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ActivityDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ActivityDescription, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ActivityDescription, "", new { @class = "text-danger" })
                 <div id="validationWarning">Aktivitetens datum måste ligga inom modulens datum</div>
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.ActivityTypeId, "ActivityTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class = "control-label col-md-2">Aktivitetstyp</label>            
             <div class="col-md-10">
                 @Html.DropDownList("ActivityTypeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ActivityTypeId, "", new { @class = "text-danger" })
@@ -100,7 +99,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
+}
 
 <script>
     $(document).ready(function () {
@@ -128,4 +127,3 @@
 
     });
 </script>
-}
