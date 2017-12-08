@@ -4,8 +4,10 @@
     if (ViewData.ContainsKey("courseName") == false)
     {
         <h2>Ny modul</h2>
-    }else { 
-        <h2>Ny modul till kursen @ViewData["courseName"]</h2>
+    }else {
+        var startDate = @ViewData["coStartDate"].ToString();
+        var endDate = @ViewData["coEndDate"].ToString();
+        <h2>Ny modul till kursen @ViewData["courseName"] @startDate.Substring(0,10) - @endDate.Substring(0, 10)</h2>
     }
 }
 
@@ -49,6 +51,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ModulEnd, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ModulEnd, "", new { @class = "text-danger" })
+            <div id="validationWarning">Modulens datum måste ligga inom kursens datum</div>
             </div>
         </div>
 @{ 
@@ -101,7 +104,8 @@
             var modulEnd = $("#ModulEnd").val();
 
             if (modulStart < coStartDate || modulStart > coEndDate || modulEnd < coStartDate || modulEnd > coEndDate) {
-                alert("Satan vad datum var fel!");
+                $("#validationWarning").show();
+                //alert("Satan vad datum var fel!");
                 return false;
             } else {
                 alert("Bravo!!!");

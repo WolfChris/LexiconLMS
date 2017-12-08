@@ -53,6 +53,10 @@ textarea {
     padding-bottom: 0px;
 }
 
+#validationWarning {
+    background-color: #ff8080;
+    display: none;
+}
 .sidebar {
     background-color: antiquewhite;
     border-right: 1px solid #eee;

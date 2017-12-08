@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/LexiconLMS/Migrations/201712071728584_init.cs
+/LexiconLMS/Migrations/201712071728584_init.Designer.cs
+/LexiconLMS/Migrations/201712071728584_init.resx
