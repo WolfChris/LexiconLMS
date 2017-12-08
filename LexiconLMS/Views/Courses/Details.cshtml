@@ -78,14 +78,21 @@
                  )
     }
 </div>
-<h2>Upload</h2>
+
 @using (Html.BeginForm())
 {
     @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
-
+    <a href="#" id="showUpload">Ladda upp dokument</a>
     <script>
 
         $(document).ready(function () {
+            $('#showUpload').on('click', function () {
+                //alert("showUpload!");
+                $("#hideUpload").toggle("slow", function () {
+                    // Animation complete.
+                });
+                //$("#hideUpload").show();
+            });
             $('#btnUploadFile').on('click', function () {
                 //alert("Jävlar!");
                 var dti = $('#DocumentTypeId').val();
@@ -115,9 +122,12 @@
         });
     });
     </script>
-
+<div id="hideUpload">
+    <h4>Upload</h4>
     <input type="file" name="FileUpload" id="fileUpload" /><br />
     <input id="btnUploadFile" type="button" value="Upload File" /><br />
+</div><!-- Slut hideUpload -->
+
 
     @Html.ActionLink("Documents", "Downloads")
 
