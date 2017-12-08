@@ -135,3 +135,9 @@
 }
 
 <h2>@Html.ActionLink("Ny aktivitet", "Create", "Activities", new { id = Model.Id }, null) |</h2>
+
+<h4>Dokument</h4>
+@foreach (var item in ViewBag.DocumentModul)
+{
+    <div>@item.Name</div>
+}

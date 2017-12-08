@@ -67,7 +67,7 @@
 @{
     ViewBag.Title = "Upload";
 }
-<h2>Upload</h2>
+
 @using (Html.BeginForm())
 {
     @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
@@ -119,4 +119,10 @@
 
 @Html.ActionLink("Documents", "Downloads")
 
+}
+
+<h4>Dokument</h4>
+@foreach (var item in ViewBag.DocumentActivity)
+{
+    <div>@item.Name</div>
 }
