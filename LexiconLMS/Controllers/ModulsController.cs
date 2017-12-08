@@ -117,10 +117,10 @@ namespace LexiconLMS.Controllers
             if (ModelState.IsValid)
             {
                 //if(String.IsNullOrEmpty(HttpContext.Request.Params["txtCourseId"].ToString())) {
-                if (HttpContext.Request.Params.AllKeys.Contains("txtCourseId"))
-                { 
-                    modul.Courseid = Convert.ToInt32(HttpContext.Request.Params["txtCourseId"]);
-                 }
+                //if (HttpContext.Request.Params.AllKeys.Contains("txtCourseId"))
+                //{ 
+                //    modul.Courseid = Convert.ToInt32(HttpContext.Request.Params["txtCourseId"]);
+                // }
             
                 db.Moduls.Add(modul);
                 db.SaveChanges();

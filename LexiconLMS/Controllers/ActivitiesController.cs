@@ -81,10 +81,24 @@ namespace LexiconLMS.Controllers
         }
 
         // GET: Activities/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+
+            if (id == null)
+            {
+                ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName");
+            }
+            else
+            {
+                Modul modul = db.Moduls.Find(id);
+                ViewData["Id"] = id;
+                ViewData["ModulName"] = modul.ModulName;
+                ViewData["ModulStart"] = modul.ModulStart;
+                ViewData["ModulEnd"] = modul.ModulEnd;
+            }
+
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
-            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName");
+            
             return View();
         }
 
