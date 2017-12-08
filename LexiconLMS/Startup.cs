@@ -28,9 +28,9 @@ namespace LexiconLMS
             //{
 
                 //first we create Admin rool
-                var role = new IdentityRole();
-                role.Name = "Teacher";
-                roleManager.Create(role);
+                //var role = new IdentityRole();
+                //role.Name = "Teacher";
+                //roleManager.Create(role);
             }
 
     }

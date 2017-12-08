@@ -40,6 +40,16 @@
                             <li> @Html.ActionLink("ActivityTypes", "Index", "Activitytypes")</li>
                         }
                     }
+                
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Student"))
+                    {
+                        <li> @Html.ActionLink("Module", "Index", "Student")</li>
+                           
+                    }
+                }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

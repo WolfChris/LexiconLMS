@@ -13,18 +13,22 @@ namespace LexiconLMS.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Student
+        
         public ActionResult Index()
         {
-            {
-                var user = db.Users.Find(User.Identity.GetUserId());
-                
-                var course = db.Courses.Where(m => m.CourseId == user.CourseId).FirstOrDefault();
-                
+            var user = db.Users.Find(User.Identity.GetUserId());
+            var modul = db.Moduls.Where(m => m.Courseid == user.CourseId);
+            var course = db.Courses.Where(m => m.CourseId == user.CourseId).FirstOrDefault();
 
-                TempData["name"] =  user.FirstName + " " + user.LastName;
-                return View(course);
-            }
+            TempData["name"] = user.FirstName + " " + user.LastName;
+            TempData["courseName"] = course.CourseName;
+            TempData["CourseStart"] = course.CoStartDate;
+            TempData["courseEnd"] = course.CoStartDate;
+            TempData["courseDescription"] = course.Description;
+
+            return View(modul.ToList());
         }
+
+      
     }
 }
