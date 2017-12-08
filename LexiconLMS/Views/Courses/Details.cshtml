@@ -4,7 +4,7 @@
     ViewBag.Title = "Kursdetaljer";
 }
 
-<h3>Kursdetaljer</h3>
+<h4>Kursdetaljer</h4>
 
 <div>
     <h4>@Html.DisplayFor(model => model.CourseName)</h4>
@@ -131,6 +131,7 @@
 
 
 }
+<h4>Deltagare</h4>
 @foreach (var item in ViewBag.UserCourse)
 {
     <div>@item.UserName</div>
