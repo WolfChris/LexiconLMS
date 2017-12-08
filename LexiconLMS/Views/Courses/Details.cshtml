@@ -1,10 +1,10 @@
 ﻿@model LexiconLMS.Models.Course
 
 @{
-    ViewBag.Title = "Course Details";
+    ViewBag.Title = "Kursdetaljer";
 }
 
-<h3>Details</h3>
+<h3>Kursdetaljer</h3>
 
 <div>
     <h4>@Html.DisplayFor(model => model.CourseName)</h4>
@@ -123,7 +123,7 @@
     });
     </script>
 <div id="hideUpload">
-    <h4>Upload</h4>
+    <h4>Ladda upp fil</h4>
     @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
     <input type="file" name="FileUpload" id="fileUpload" /><br />
     <input id="btnUploadFile" type="button" value="Upload File" /><br />
