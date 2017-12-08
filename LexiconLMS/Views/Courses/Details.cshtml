@@ -54,10 +54,10 @@
                      InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
                      HttpMethod = "GET" // <-- HTTP method
                  })
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CourseId })*@ |
+    |
 
 
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Tillbaka", "Index")
 
 </p>
 <h4>Modules</h4>
@@ -130,14 +130,12 @@
 </div><!-- Slut hideUpload -->
 
 
-    @Html.ActionLink("Documents", "Downloads")
-
 }
 @foreach (var item in ViewBag.UserCourse)
 {
     <div>@item.UserName</div>
 }
-@*<h2>@Html.ActionLink("Ny modul", "Create", "Moduls",new { id = Model.CourseId }, null) |</h2>*@
+
 @Ajax.ActionLink("Ny modul", // <-- Text to display
                  "Create", // <-- Action Method Name
                  "Moduls", // <--- Controller name

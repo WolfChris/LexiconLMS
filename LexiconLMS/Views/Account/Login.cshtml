@@ -1,7 +1,7 @@
 ﻿@using LexiconLMS.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Logga in";
 }
 
 <h2 class="login-title">@ViewBag.Title</h2>
@@ -11,7 +11,7 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4 class="login-title">Use a local account to log in.</h4>
+                <h4 class="login-title">Logga in på Lexicon's lärplattform</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
