@@ -106,7 +106,7 @@ namespace LexiconLMS.Controllers
             //return PartialView();
             if (Request.IsAjaxRequest()) return PartialView();
             
-            return View();
+            return PartialView();
         }
 
         // POST: Moduls/Create
