@@ -4,7 +4,7 @@
     ViewBag.Title = "Module Details";
 }
 
-<h2>Module Details</h2>
+<h4>Detaljer Modul</h4>
 
 <div>
     <hr />
@@ -124,3 +124,5 @@
 @Html.ActionLink("Documents", "Downloads")
 
 }
+
+<h2>@Html.ActionLink("Ny aktivitet", "Create", "Activities", new { id = Model.Id }, null) |</h2>
