@@ -12,6 +12,8 @@ using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
 {
+    
+   
     public class ModulsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
