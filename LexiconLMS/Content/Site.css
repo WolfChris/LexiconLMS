@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 70px;
+    padding-top: 60px;
     padding-bottom: 20px;
 
 }
@@ -81,8 +81,12 @@ textarea {
 #main-container {
     width: 100%;
 }
+/*fix the width to match the rest of the page*/
+#workspace {
+    width: 100%;
+}
 
-.logo-gif{
+.logo-gif {
     height: 30px;
     width: 100px;
 }

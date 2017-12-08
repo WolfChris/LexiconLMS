@@ -99,8 +99,10 @@ namespace LexiconLMS.Controllers
             }
 
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
-            
-            return View();
+            if (Request.IsAjaxRequest()) return PartialView();
+
+            return PartialView();
+            //return View();
         }
 
         // POST: Activities/Create
@@ -119,7 +121,7 @@ namespace LexiconLMS.Controllers
 
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
             ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
-            return View(activity);
+            return PartialView(activity);
         }
 
         // GET: Activities/Edit/5

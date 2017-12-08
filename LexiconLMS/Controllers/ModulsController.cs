@@ -11,9 +11,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
-{
-    
-   
+{   
     public class ModulsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -149,7 +147,7 @@ namespace LexiconLMS.Controllers
                 return HttpNotFound();
             }
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
-            return View(modul);
+            return PartialView(modul);
         }
 
         // POST: Moduls/Edit/5
@@ -166,7 +164,7 @@ namespace LexiconLMS.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
-            return View(modul);
+            return PartialView(modul);
         }
 
         // GET: Moduls/Delete/5
