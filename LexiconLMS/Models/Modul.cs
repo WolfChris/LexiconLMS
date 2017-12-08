@@ -10,10 +10,18 @@ namespace LexiconLMS.Models
     public class Modul
     {
         public int Id { get; set; }
+
+        [Display(Name = "Modulnamn")]
         public string ModulName { get; set; }
+
+        [Display(Name = "Beskrivning")]
         public string ModulDescription { get; set; }
+
+        [Display(Name = "Startdatum modul")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ModulStart { get; set; }
+
+        [Display(Name = "Slutdatum modul")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ModulEnd { get; set; }
        

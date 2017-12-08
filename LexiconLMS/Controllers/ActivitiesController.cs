@@ -71,6 +71,7 @@ namespace LexiconLMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
+            ViewBag.DocumentActivity = db.Documents.Where(d => d.ActivityId == id).ToList();
             Activity activity = db.Activities.Find(id);
             if (activity == null)
             {

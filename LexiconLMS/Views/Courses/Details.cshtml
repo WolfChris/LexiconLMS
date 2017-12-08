@@ -1,10 +1,10 @@
 ﻿@model LexiconLMS.Models.Course
 
 @{
-    ViewBag.Title = "Kursdetaljer";
+    ViewBag.Title = "Course Details";
 }
 
-<h3>Detaljer</h3>
+<h3>Details</h3>
 
 <div>
     <h4>@Html.DisplayFor(model => model.CourseName)</h4>
@@ -54,10 +54,10 @@
                      InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
                      HttpMethod = "GET" // <-- HTTP method
                  })
-    |
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CourseId })*@ |
 
 
-    @Html.ActionLink("Tillbaka", "Index")
+    @Html.ActionLink("Back to List", "Index")
 
 </p>
 <h4>Modules</h4>
@@ -78,14 +78,21 @@
                  )
     }
 </div>
-<h3>Upload</h3>
+
 @using (Html.BeginForm())
 {
     @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
-
+    <a href="#" id="showUpload">Ladda upp dokument</a>
     <script>
 
         $(document).ready(function () {
+            $('#showUpload').on('click', function () {
+                //alert("showUpload!");
+                $("#hideUpload").toggle("slow", function () {
+                    // Animation complete.
+                });
+                //$("#hideUpload").show();
+            });
             $('#btnUploadFile').on('click', function () {
                 //alert("Jävlar!");
                 var dti = $('#DocumentTypeId').val();
@@ -115,16 +122,21 @@
         });
     });
     </script>
-
+<div id="hideUpload">
+    <h4>Upload</h4>
     <input type="file" name="FileUpload" id="fileUpload" /><br />
     <input id="btnUploadFile" type="button" value="Upload File" /><br />
+</div><!-- Slut hideUpload -->
+
+
+    @Html.ActionLink("Documents", "Downloads")
 
 }
 @foreach (var item in ViewBag.UserCourse)
 {
     <div>@item.UserName</div>
 }
-
+@*<h2>@Html.ActionLink("Ny modul", "Create", "Moduls",new { id = Model.CourseId }, null) |</h2>*@
 @Ajax.ActionLink("Ny modul", // <-- Text to display
                  "Create", // <-- Action Method Name
                  "Moduls", // <--- Controller name
@@ -136,3 +148,10 @@
                      HttpMethod = "GET" // <-- HTTP method
                  }
                  )
+<h4>Dokument</h4>
+@foreach (var item in ViewBag.DocumentCourse)
+{
+    <div>@item.Name</div>
+}
+
+

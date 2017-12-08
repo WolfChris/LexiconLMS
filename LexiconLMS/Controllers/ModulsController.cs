@@ -12,6 +12,8 @@ using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
 {
+    
+   
     public class ModulsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -78,6 +80,7 @@ namespace LexiconLMS.Controllers
             }
             ViewBag.ModulActivities = db.Activities.Where(p => p.ModuleId == id).ToList();
             ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
+            ViewBag.DocumentModul = db.Documents.Where(d => d.ModulId == id).ToList();
             Modul modul = db.Moduls.Find(id);
             if (modul == null)
             {
@@ -114,7 +117,7 @@ namespace LexiconLMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ModulName,ModulDescription,ModulStart,ModulEnd,Courseid")] Modul modul)
+        public ActionResult Create([Bind(Include = "Id,ModulName,ModulDescription,ModulStart,ModulEnd,Courseid")] Modul modul)
         {
             if (ModelState.IsValid)
             {

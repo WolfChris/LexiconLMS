@@ -57,6 +57,10 @@ textarea {
     background-color: #ff8080;
     display: none;    
 }
+#hideUpload {
+    display: none;
+}
+
 .sidebar {
     background-color: antiquewhite;
     border-right: 1px solid #eee;

@@ -83,6 +83,7 @@ namespace LexiconLMS.Controllers
             ViewBag.UserCourse = db.Users.Where(u => u.CourseId == id).ToList();
             ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
             ViewBag.CourseModuls = db.Moduls.Where(i => i.Courseid == id).ToList();
+            ViewBag.DocumentCourse = db.Documents.Where(d => d.CourseId == id).ToList();
             if (course == null)
             {
                 return HttpNotFound();
