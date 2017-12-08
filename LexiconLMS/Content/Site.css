@@ -66,6 +66,14 @@ textarea {
     border-right: 1px solid #eee;
 }
 
+#coursesHR {
+    background-color: black;
+    height: 1px;
+    margin-bottom: 10px;
+    margin-top:10px;
+
+}
+
 .main {
     background-color: white;
 }
