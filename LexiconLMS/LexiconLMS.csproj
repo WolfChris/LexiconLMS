@@ -203,9 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712071728584_init.cs" />
-    <Compile Include="Migrations\201712071728584_init.Designer.cs">
-      <DependentUpon>201712071728584_init.cs</DependentUpon>
+    <Compile Include="Migrations\201712080740278_init.cs" />
+    <Compile Include="Migrations\201712080740278_init.Designer.cs">
+      <DependentUpon>201712080740278_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -234,9 +234,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\uploads\.gitattributes" />
-    <Content Include="App_Data\uploads\.gitignore" />
-    <Content Include="App_Data\uploads\Övning 15-1_ Användarupplevelse - Diskussion.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -333,9 +330,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712071728584_init.resx">
-      <DependentUpon>201712071728584_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712080740278_init.resx">
+      <DependentUpon>201712080740278_init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
