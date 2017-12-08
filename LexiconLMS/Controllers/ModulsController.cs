@@ -104,6 +104,8 @@ namespace LexiconLMS.Controllers
 
             }
             //return PartialView();
+            if (Request.IsAjaxRequest()) return PartialView();
+            
             return View();
         }
 
