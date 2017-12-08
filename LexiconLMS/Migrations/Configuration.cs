@@ -224,17 +224,27 @@ namespace LexiconLMS.Migrations
             context.SaveChanges();
             //Create Teacher user and Students
 
+            int? cId = null;
+            string fn1 = "Förnmamn";
+            string ln1 = "Efternamn";
+            string fn = "";
+            string ln = "";
+            int counter = 1;
             var users = new[] { "admin1@admin1.com", "student1@lexicon.se", "student2@lexicon.se", "student3@lexicon.se" };
 
             foreach (var user in users)
             {
                 if (context.Users.Any(u => u.UserName == user)) continue;
+                fn = fn1 + counter;
+                ln = ln1 + counter;
                 if (user != "admin1@admin1.com")
                 {
                     password = "Student@1234";
+                    cId = c2;
                 }
-                var admin1 = new ApplicationUser { UserName = user, Email = user };
+                var admin1 = new ApplicationUser { FirstName = fn, LastName = ln, UserName = user, Email = user, CourseId = cId};
                 UserManager.Create(admin1, password);
+                counter++;
             }
 
             context.SaveChanges();

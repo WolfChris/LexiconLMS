@@ -1,1 +1,0 @@
-@Model.Value.ToString(@"d' day(s) 'h' hour(s) 'm' minutes'")

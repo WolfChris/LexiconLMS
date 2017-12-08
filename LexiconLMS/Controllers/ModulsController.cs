@@ -105,6 +105,9 @@ namespace LexiconLMS.Controllers
                 ViewData["coEndDate"] = course.CoEndDate;
 
             }
+            //return PartialView();
+            if (Request.IsAjaxRequest()) return PartialView();
+            
             return PartialView();
         }
 
@@ -113,10 +116,16 @@ namespace LexiconLMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ModulName,ModulDescription,ModulStart,ModulEnd,Courseid")] Modul modul)
+        public ActionResult Create([Bind(Include = "ModulName,ModulDescription,ModulStart,ModulEnd,Courseid")] Modul modul)
         {
             if (ModelState.IsValid)
             {
+                //if(String.IsNullOrEmpty(HttpContext.Request.Params["txtCourseId"].ToString())) {
+                //if (HttpContext.Request.Params.AllKeys.Contains("txtCourseId"))
+                //{ 
+                //    modul.Courseid = Convert.ToInt32(HttpContext.Request.Params["txtCourseId"]);
+                // }
+            
                 db.Moduls.Add(modul);
                 db.SaveChanges();
                 return RedirectToAction("Index");
