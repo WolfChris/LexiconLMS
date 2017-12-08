@@ -70,7 +70,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+
 
  <a href="#" id="showUpload">Ladda upp dokument</a>
     <script>
@@ -113,6 +113,7 @@
     </script>
     <div id="hideUpload">
         <h4>Upload</h4>
+        @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
         <input type="file" name="FileUpload" id="fileUpload" /><br />
         <input id="btnUploadFile" type="button" value="Upload File" /><br />
     </div><!-- Slut hideUpload -->
