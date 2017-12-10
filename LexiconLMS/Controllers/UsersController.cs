@@ -38,6 +38,17 @@ namespace LexiconLMS.Controllers
             return View(applicationUser);
         }
 
+        public FileContentResult GetImage(string id)
+        {
+            byte[] byteArray = db.Users.Find(id).Image;
+            return byteArray != null
+                ? new FileContentResult(byteArray, "image/jpeg")
+                : null;
+            //ApplicationUser applicationUser = db.Users.Find(id);
+            //byte[] image = applicationUser.Image;
+            //    return File(image, "image/jpg");
+        }
+
         // GET: Users/Create
         public ActionResult Create()
         {            

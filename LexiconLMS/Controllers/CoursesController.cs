@@ -70,6 +70,18 @@ namespace LexiconLMS.Controllers
             return View(db.Courses.ToList());
         }
 
+        //public FileContentResult ProcessImage(byte[] imageToProcess)
+        //{
+        //    return new FileContentResult(imageToProcess, "image/jpeg");
+        //}
+        // To convert the Byte Array to the author Image
+        //public FileContentResult GetImg(string id)
+        //{
+        //    byte[] byteArray = db.Users.Find(id).Image;
+        //    return byteArray != null
+        //        ? new FileContentResult(byteArray, "image/jpeg")
+        //        : null;
+        //}
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {
