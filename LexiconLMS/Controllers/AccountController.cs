@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LexiconLMS.Models;
+using System.IO;
 
 namespace LexiconLMS.Controllers
 {
@@ -177,8 +178,13 @@ namespace LexiconLMS.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            var allRoles = (new ApplicationDbContext()).Roles.OrderBy(r => r.Name).ToList().Select(r =>
-              new SelectListItem { Value = r.Name.ToString(), Text = r.Name }).ToList();
+            var allRoles = (new ApplicationDbContext())
+                .Roles.OrderBy(r => r.Name)
+                .ToList()
+                .Select(r => new SelectListItem {
+                    Value = r.Name.ToString(),
+                    Text = r.Name }).ToList();
+
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
             ViewBag.Roles = allRoles;
             return View();
@@ -190,19 +196,25 @@ namespace LexiconLMS.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
-
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LastName = model.LastName, FirstName= model.FirstName, CourseId= Convert.ToInt32(HttpContext.Request.Params["courseId"]) };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    LastName = model.LastName,
+                    FirstName = model.FirstName,
+                    CourseId = Convert.ToInt32(HttpContext.Request.Params["courseId"]),
+                    Image = model.Image
+                };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     UserManager.AddToRole(user.Id, model.UserRole);
 
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
