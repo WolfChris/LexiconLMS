@@ -3,20 +3,13 @@
     ViewBag.Title = "Register";
 }
 <hr />
-@Ajax.ActionLink("Användarlista", // <-- Text to display
-                    "Index", // <-- Action Method Name
-                    "Users",
-                    new AjaxOptions
-                    {
-                        UpdateTargetId = "workspace", // <-- DOM element ID to update
-                        InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
-                        HttpMethod = "GET" // <-- HTTP method
-                    })
+
+@Html.ActionLink("ListOfUsers", "Index", "Users")
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Skapa ny användare</h4>
+    <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">

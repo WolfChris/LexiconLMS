@@ -187,7 +187,6 @@ namespace LexiconLMS.Controllers
 
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
             ViewBag.Roles = allRoles;
-            if (Request.IsAjaxRequest()) return PartialView();
             return View();
 
         }
