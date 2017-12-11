@@ -4,19 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h4>Andvändare Index</h4>
 
 <p>
-    @Ajax.ActionLink("Skapa Användare", // <-- Text to display
-                    "Register", // <-- Action Method Name
-                    "Account",
-                    new AjaxOptions
-                    {
-                        UpdateTargetId = "workspace", // <-- DOM element ID to update
-                        InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
-                        HttpMethod = "GET" // <-- HTTP method
-                    })
-    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -66,10 +57,13 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Detaljer", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Ta Bort", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
 
 </table>
+<div>
+    @Html.ActionLink("Tillbaka", "Index", "Courses")
+</div>

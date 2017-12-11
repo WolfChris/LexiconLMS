@@ -18,8 +18,8 @@ namespace LexiconLMS.Controllers
         public ActionResult Index()
         {
             var user = db.Users.ToList();
-            if (Request.IsAjaxRequest()) return PartialView(db.Users.ToList());
 
+                       
             return View(db.Users.ToList());
         }
 
