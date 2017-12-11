@@ -7,13 +7,13 @@ namespace LexiconLMS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class movepropimagetoregviewmod : IMigrationMetadata
+    public sealed partial class newtry : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(movepropimagetoregviewmod));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newtry));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712090822382_movepropimagetoregviewmod"; }
+            get { return "201712111322318_newtry"; }
         }
         
         string IMigrationMetadata.Source
