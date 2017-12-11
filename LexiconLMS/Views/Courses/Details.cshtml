@@ -78,9 +78,22 @@
                  )
                 }
                 <h4>Kursdeltagare</h4>
+
                 @foreach (var item in ViewBag.UserCourse)
             {
-                    <div>@item.UserName</div>
+                    
+                    <div class="userInfo">
+                        
+                        <img src="@Url.Action("GetImage", "Users", new { id = @item.Id })" alt="Bild Saknas" class="profilPic" />
+                        <div>
+                            <p>
+                                @item.FirstName
+                                @item.LastName<br />
+                                @item.UserName
+                            </p>
+                            
+                        </div>
+                    </div>
                 }
             </div>
         </div>
