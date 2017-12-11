@@ -3,7 +3,7 @@ namespace LexiconLMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class newtry : DbMigration
+    public partial class newtry5 : DbMigration
     {
         public override void Up()
         {
