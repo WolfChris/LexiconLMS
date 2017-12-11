@@ -24,7 +24,7 @@ namespace LexiconLMS.Controllers
 
                 if (Request.Files[upload].FileName != "")
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/uploads/";
                     string filename = Path.GetFileName(Request.Files[upload].FileName);
                     Request.Files[upload].SaveAs(Path.Combine(path, filename));
 
@@ -54,7 +54,7 @@ namespace LexiconLMS.Controllers
 
         public ActionResult Downloads()
         {
-            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            var dir = new DirectoryInfo(Server.MapPath("~/uploads/"));
             FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
             foreach (var file in fileNames)
             {
