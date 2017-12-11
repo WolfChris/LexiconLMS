@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201712090937449_addImgPropToIdentMod1.Designer.cs">
       <DependentUpon>201712090937449_addImgPropToIdentMod1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712111315436_newtry.cs" />
+    <Compile Include="Migrations\201712111315436_newtry.Designer.cs">
+      <DependentUpon>201712111315436_newtry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712090937449_addImgPropToIdentMod1.resx">
       <DependentUpon>201712090937449_addImgPropToIdentMod1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712111315436_newtry.resx">
+      <DependentUpon>201712111315436_newtry.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
