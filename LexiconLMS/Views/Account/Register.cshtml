@@ -3,20 +3,14 @@
     ViewBag.Title = "Register";
 }
 <hr />
-@Ajax.ActionLink("Användarlista", // <-- Text to display
-                    "Index", // <-- Action Method Name
-                    "Users",
-                    new AjaxOptions
-                    {
-                        UpdateTargetId = "workspace", // <-- DOM element ID to update
-                        InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
-                        HttpMethod = "GET" // <-- HTTP method
-                    })
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+@Html.ActionLink("ListOfUsers", "Index",
+    "Users")
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Skapa ny användare</h4>
+    <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -64,17 +58,9 @@
 
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Image, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    <input type="file" name="ImageFile" />
-                </div>
-            </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    
-                    
                     <input type="submit" class="btn btn-default" value="Register" />
                 </div>
             </div>
