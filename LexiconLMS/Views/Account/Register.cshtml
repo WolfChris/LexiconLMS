@@ -4,7 +4,8 @@
 }
 <hr />
 
-@Html.ActionLink("ListOfUsers", "Index", "Users")
+@Html.ActionLink("ListOfUsers", "Index",
+    "Users")
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
