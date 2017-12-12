@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace LexiconLMS.Models
         [Display(Name = "Aktivitetstyp")]
         public int ActivityTypeId { get; set; }
 
-
+       
         //[ForeignKey("CourseId")]
         public int ModuleId { get; set; }
 
@@ -37,5 +38,7 @@ namespace LexiconLMS.Models
 
         [Display(Name = "Aktivitetstyp")]
         public virtual ActivityType ActivityType { get; set; }
+
+
     }
 }

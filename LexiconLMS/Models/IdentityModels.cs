@@ -53,7 +53,6 @@ namespace LexiconLMS.Models
 
         public DbSet<DocumentType> DocumentTypes { get; set; }
 
-        
-
+       
     }
 }

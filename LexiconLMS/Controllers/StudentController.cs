@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,5 +31,14 @@ namespace LexiconLMS.Controllers
         }
 
       
-    }
+    
+
+    //public ActionResult Assigments()
+    //{
+    //        var user = db.Users.Find(User.Identity.GetUserId());
+    //        var modul = db.Moduls.Where(x => x.Courseid == user.CourseId).Select(y => y.Activities.Where(a => a.ActivityTypeId == 2));
+            
+    //        return View(modul);
+    //}
+}
 }

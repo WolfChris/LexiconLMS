@@ -29,5 +29,7 @@ namespace LexiconLMS.Models
         [ForeignKey("Courseid")]
         public Course Course { get; set; }
 
+        public virtual ICollection<Activity> Activities { get; set; }
+
     }
 }
