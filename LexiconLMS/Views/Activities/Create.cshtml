@@ -1,18 +1,30 @@
 ﻿@model LexiconLMS.Models.Activity
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Skapa ny Aktivitet";
+
+    if (ViewData.ContainsKey("ModulName") == false)
+    {
+        <h4>Ny Aktivitet</h4>
+    }
+    else
+    {
+        var startDate = @ViewData["ModulStart"].ToString();
+        var endDate = @ViewData["ModulEnd"].ToString();
+        <h4>Ny aktivitet till modulen @ViewData["modulName"] @startDate.Substring(0, 10) - @endDate.Substring(0, 10)</h4>
+    }
+
 }
 
-<h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Activity</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -20,6 +32,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ActivityName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ActivityName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ActivityDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ActivityDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ActivityDescription, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -36,25 +56,19 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ActivityEnd, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ActivityEnd, "", new { @class = "text-danger" })
+                <div id="validationWarning">Aktivitetens datum måste ligga inom modulens datum</div>
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.ActivityDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ActivityDescription, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ActivityDescription, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ActivityTypeId, "ActivityTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class = "control-label col-md-2">Aktivitetstyp</label>            
             <div class="col-md-10">
                 @Html.DropDownList("ActivityTypeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ActivityTypeId, "", new { @class = "text-danger" })
             </div>
         </div>
-
+@{
+    if (ViewData.ContainsKey("modulName") == false)
+    {
         <div class="form-group">
             @Html.LabelFor(model => model.ModuleId, "ModuleId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -62,10 +76,18 @@
                 @Html.ValidationMessageFor(model => model.ModuleId, "", new { @class = "text-danger" })
             </div>
         </div>
-
+    }
+    else
+    {
+        var ModuleId = ViewData["Id"];
+        @Html.Hidden("ModuleId")
+        <input type="hidden" id="txtModuleStart" value='@ViewData["ModulStart"]' />
+        <input type="hidden" id="txtModuleEnd" value='@ViewData["ModulEnd"]' />
+        }
+    }
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" id="btnSubmit" value="Skapa" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -78,3 +100,30 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script>
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+
+            //alert("Heja");
+            var moduleStart = $("#txtModuleStart").val();
+            var moduleEnd = $("#txtModuleEnd").val();
+            var activityStart = $("#ActivityStart").val();
+            var activityEnd = $("#ActivityEnd").val();
+
+            if (activityStart < moduleStart || activityStart > moduleEnd || activityEnd < moduleStart || activityEnd > moduleEnd) {
+                $("#validationWarning").show();
+                $("#validationWarning").css('display', 'inline-block');
+                //alert("Satan vad datum var fel!");
+                return false;
+            } else {
+                alert("Bravo!!!");
+            }
+
+
+
+        });
+
+    });
+</script>

@@ -203,37 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712041048261_init.cs" />
-    <Compile Include="Migrations\201712041048261_init.Designer.cs">
-      <DependentUpon>201712041048261_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712041428309_updateSeed.cs" />
-    <Compile Include="Migrations\201712041428309_updateSeed.Designer.cs">
-      <DependentUpon>201712041428309_updateSeed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712041444294_updateSeed1.cs" />
-    <Compile Include="Migrations\201712041444294_updateSeed1.Designer.cs">
-      <DependentUpon>201712041444294_updateSeed1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712050840338_canged_UserId_to_string_in_documents.cs" />
-    <Compile Include="Migrations\201712050840338_canged_UserId_to_string_in_documents.Designer.cs">
-      <DependentUpon>201712050840338_canged_UserId_to_string_in_documents.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712051357415_documents_deadline_nullable.cs" />
-    <Compile Include="Migrations\201712051357415_documents_deadline_nullable.Designer.cs">
-      <DependentUpon>201712051357415_documents_deadline_nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712051418396_newMergesDocsAndLinks.cs" />
-    <Compile Include="Migrations\201712051418396_newMergesDocsAndLinks.Designer.cs">
-      <DependentUpon>201712051418396_newMergesDocsAndLinks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712061406282_added_field_courseid_to_users.cs" />
-    <Compile Include="Migrations\201712061406282_added_field_courseid_to_users.Designer.cs">
-      <DependentUpon>201712061406282_added_field_courseid_to_users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712071349073_add_nullable.cs" />
-    <Compile Include="Migrations\201712071349073_add_nullable.Designer.cs">
-      <DependentUpon>201712071349073_add_nullable.cs</DependentUpon>
+    <Compile Include="Migrations\201712080740278_init.cs" />
+    <Compile Include="Migrations\201712080740278_init.Designer.cs">
+      <DependentUpon>201712080740278_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201712112234255_studentassigmentsTable.cs" />
     <Compile Include="Migrations\201712112234255_studentassigmentsTable.Designer.cs">
@@ -268,9 +240,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\uploads\.gitattributes" />
-    <Content Include="App_Data\uploads\.gitignore" />
-    <Content Include="App_Data\uploads\Övning 15-1_ Användarupplevelse - Diskussion.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -295,7 +264,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -351,6 +319,7 @@
     <Content Include="Views\DocumentTypes\Edit.cshtml" />
     <Content Include="Views\DocumentTypes\Index.cshtml" />
     <Content Include="Views\Documents\UploadIndex.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -367,35 +336,16 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712041048261_init.resx">
-      <DependentUpon>201712041048261_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712041428309_updateSeed.resx">
-      <DependentUpon>201712041428309_updateSeed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712041444294_updateSeed1.resx">
-      <DependentUpon>201712041444294_updateSeed1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712050840338_canged_UserId_to_string_in_documents.resx">
-      <DependentUpon>201712050840338_canged_UserId_to_string_in_documents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712051357415_documents_deadline_nullable.resx">
-      <DependentUpon>201712051357415_documents_deadline_nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712051418396_newMergesDocsAndLinks.resx">
-      <DependentUpon>201712051418396_newMergesDocsAndLinks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712061406282_added_field_courseid_to_users.resx">
-      <DependentUpon>201712061406282_added_field_courseid_to_users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712071349073_add_nullable.resx">
-      <DependentUpon>201712071349073_add_nullable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712080740278_init.resx">
+      <DependentUpon>201712080740278_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712112234255_studentassigmentsTable.resx">
       <DependentUpon>201712112234255_studentassigmentsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\uploads\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

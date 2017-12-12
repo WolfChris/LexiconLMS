@@ -27,14 +27,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                     
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (User.IsInRole("Teacher"))
                         {
                             <li> @Html.ActionLink("Add Course/Module", "Index", "Courses")</li>
-                            <li>@Html.ActionLink("Users", "Index", "Users", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                            <li> @Html.ActionLink("Users", "Index", "Users", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                             <li> @Html.ActionLink("Moduls", "Index", "Moduls")</li>
                             <li> @Html.ActionLink("Activities", "Index", "Activities")</li>
                             <li> @Html.ActionLink("ActivityTypes", "Index", "Activitytypes")</li>
@@ -46,8 +45,8 @@
                 {
                     if (User.IsInRole("Student"))
                     {
-                        
-                        <li> @Html.ActionLink("Assigment", "ListAssigments", "Student")</li>
+                        <li> @Html.ActionLink("Module", "Index", "Student")</li>
+                        <li> @Html.ActionLink("Assigments", "Assigments", "Student")</li>
 
                     }
                 }
@@ -58,9 +57,9 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        @*<hr />*@
         <footer>
-            <p>&copy; @DateTime.Now.Year -Lexicon</p>
+            <p>&copy; @DateTime.Now.Year - Lexicon .NET Team</p>
         </footer>
     </div>
 

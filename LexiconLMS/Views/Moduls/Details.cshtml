@@ -1,71 +1,84 @@
 ﻿@model LexiconLMS.Models.Modul
-<hr/>
+
 @{
-    ViewBag.Title = "Module Details";
+    ViewBag.Title = "Moduldetaljer";
 }
+<div class="container-fluid container-xs-height">
+    <div class="row row-xs-height workContainer">
+        <div class="col-sm-9 col-md-10 main col-xs-height">
+            <h3>Moduldetaljer</h3>
+            <h4>@Html.DisplayFor(model => model.ModulName)</h4>
+            
+                <hr />
+                <dl class="dl-horizontal">
+                    @*<dt>
+                            @Html.DisplayNameFor(model => model.Course.CourseName)
+                        </dt>
 
-<h2>Module Details</h2>
+                        <dd>
+                            @Html.DisplayFor(model => model.Course.CourseName)
+                        </dd>*@
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Course.CourseName)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModulName)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course.CourseName)
-        </dd>*@
+                    <dd>
+                        @Html.DisplayFor(model => model.ModulName)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModulName)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModulDescription)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModulName)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.ModulDescription)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModulDescription)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModulStart)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModulDescription)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.ModulStart)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModulStart)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModulEnd)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModulStart)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.ModulEnd)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModulEnd)
-        </dt>
+                </dl>
+           
+            <hr />
+            <p>
+                @Ajax.ActionLink("Edit", // <-- Text to display
+                 "Edit", // <-- Action Method Name
+                 new { id = Model.Id },
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
 
-        <dd>
-            @Html.DisplayFor(model => model.ModulEnd)
-        </dd>
 
-    </dl>
-</div>
-<hr/>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ModulName }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-<h4>Activities</h4>
-@*@foreach (var item in ViewBag.ModulActivities)
-{
-    <div>@(item.ActivityName)</div>
-}*@
+                 |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+            <h4>Activities</h4>
+            @*@foreach (var item in ViewBag.ModulActivities)
+                {
+                    <div>@(item.ActivityName)</div>
+                }*@
 
-<div class="list-group">
-    @foreach (var item in ViewBag.ModulActivities)
+            <div class="list-group">
+                @foreach (var item in ViewBag.ModulActivities)
             {
-        @Ajax.ActionLink((string)item.ActivityName, // <-- Text to display
+                    @Ajax.ActionLink((string)item.ActivityName, // <-- Text to display
                  "Details", // <-- Action Method Name
                  "Activities", // <--- Controller name
                  new { id = item.Id },
@@ -77,17 +90,29 @@
                  },
                  new { @class = "list-group-item" }
                  )
-    }
-</div>
+                }
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-2 sidebar col-xs-height">
+            <h4>Dokument</h4>
+            @foreach (var item in ViewBag.DocumentModul)
+            {
+                <div>@item.Name</div>
+            }
+            <hr id="coursesHR" />
+            @using (Html.BeginForm())
+            {
 
-<h2>Upload</h2>
-@using (Html.BeginForm())
-{
-@Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
-
-<script>
+                <a href="#" id="showUpload">Ladda upp dokument</a>
+                <script>
 
         $(document).ready(function () {
+            $('#showUpload').on('click', function () {
+                //alert("showUpload!");
+                $("#hideUpload").toggle("slow", function () {
+                    // Animation complete.
+                });
+            });
             $('#btnUploadFile').on('click', function () {
                 //alert("Jävlar!");
                 var dti = $('#DocumentTypeId').val();
@@ -107,7 +132,6 @@
                     url: '@Url.Action("UploadIndex", "Moduls")',
                     processData: false,
                     contentType: false,
-
                     data: data
                 });
                 alert("Filen uppladdad!");
@@ -116,11 +140,34 @@
                 });
         });
     });
-</script>
+                </script>
+                <div id="hideUpload">
+                    <h4>Upload</h4>
+                    @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+                    <input type="file" name="FileUpload" id="fileUpload" /><br />
+                    <input id="btnUploadFile" type="button" value="Upload File" /><br />
+                </div><!-- Slut hideUpload -->
 
-<input type="file" name="FileUpload" id="fileUpload" /><br />
-<input id="btnUploadFile" type="button" value="Upload File" /><br />
+                @*<hr id="coursesHR" />
+                @Html.ActionLink("Documents", "Downloads")*@
 
-@Html.ActionLink("Documents", "Downloads")
+            }
 
-}
+            <hr id="coursesHR" />
+            @Ajax.ActionLink("Ny aktivitet", // <-- Text to display
+                 "Create", // <-- Action Method Name
+                 "Activities", // <--- Controller name
+                 new { id = Model.Id },
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 }
+                 )
+            @*<h2>@Html.ActionLink("Ny aktivitet", "Create", "Activities", new { id = Model.Id }, null)</h2>*@
+
+
+        </div>
+    </div>
+</div>

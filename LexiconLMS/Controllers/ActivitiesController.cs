@@ -23,7 +23,7 @@ namespace LexiconLMS.Controllers
             
                 if (Request.Files[upload].FileName != "")
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/uploads/";
                     string filename = Path.GetFileName(Request.Files[upload].FileName);
                     Request.Files[upload].SaveAs(Path.Combine(path, filename));
                     int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"]);
@@ -47,7 +47,7 @@ namespace LexiconLMS.Controllers
 
         public ActionResult Downloads()
         {
-            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            var dir = new DirectoryInfo(Server.MapPath("~/uploads/"));
             FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
             foreach (var file in fileNames)
             {
@@ -71,6 +71,7 @@ namespace LexiconLMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
+            ViewBag.DocumentActivity = db.Documents.Where(d => d.ActivityId == id).ToList();
             Activity activity = db.Activities.Find(id);
             if (activity == null)
             {
@@ -81,11 +82,27 @@ namespace LexiconLMS.Controllers
         }
 
         // GET: Activities/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+
+            if (id == null)
+            {
+                ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName");
+            }
+            else
+            {
+                Modul modul = db.Moduls.Find(id);
+                ViewData["Id"] = id;
+                ViewData["ModulName"] = modul.ModulName;
+                ViewData["ModulStart"] = modul.ModulStart;
+                ViewData["ModulEnd"] = modul.ModulEnd;
+            }
+
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
-            ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName");
-            return View();
+            if (Request.IsAjaxRequest()) return PartialView();
+
+            return PartialView();
+            //return View();
         }
 
         // POST: Activities/Create
@@ -104,7 +121,7 @@ namespace LexiconLMS.Controllers
 
             ViewBag.ActivityTypeId = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName", activity.ActivityTypeId);
             ViewBag.ModuleId = new SelectList(db.Moduls, "Id", "ModulName", activity.ModuleId);
-            return View(activity);
+            return PartialView(activity);
         }
 
         // GET: Activities/Edit/5

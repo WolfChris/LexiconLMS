@@ -11,9 +11,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
-{
-    
-   
+{   
     public class ModulsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -25,7 +23,7 @@ namespace LexiconLMS.Controllers
 
                 if (Request.Files[upload].FileName != "")
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/uploads/";
                     string filename = Path.GetFileName(Request.Files[upload].FileName);
                     Request.Files[upload].SaveAs(Path.Combine(path, filename));
 
@@ -55,7 +53,7 @@ namespace LexiconLMS.Controllers
 
         public ActionResult Downloads()
         {
-            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            var dir = new DirectoryInfo(Server.MapPath("~/uploads/"));
             FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
             foreach (var file in fileNames)
             {
@@ -80,6 +78,7 @@ namespace LexiconLMS.Controllers
             }
             ViewBag.ModulActivities = db.Activities.Where(p => p.ModuleId == id).ToList();
             ViewBag.DocumentTypeId = new SelectList(db.DocumentTypes, "Id", "DocumentTypeName");
+            ViewBag.DocumentModul = db.Documents.Where(d => d.ModulId == id).ToList();
             Modul modul = db.Moduls.Find(id);
             if (modul == null)
             {
@@ -90,9 +89,24 @@ namespace LexiconLMS.Controllers
         }
 
         // GET: Moduls/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName");
+            if (id == null) { 
+            ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName");                        
+            
+            }
+            else
+            {
+                Course course = db.Courses.Find(id);
+                ViewData["courseId"] = id;
+                ViewData["courseName"] = course.CourseName;
+                ViewData["coStartDate"] = course.CoStartDate;
+                ViewData["coEndDate"] = course.CoEndDate;
+
+            }
+            //return PartialView();
+            if (Request.IsAjaxRequest()) return PartialView();
+            
             return PartialView();
         }
 
@@ -105,6 +119,12 @@ namespace LexiconLMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                //if(String.IsNullOrEmpty(HttpContext.Request.Params["txtCourseId"].ToString())) {
+                //if (HttpContext.Request.Params.AllKeys.Contains("txtCourseId"))
+                //{ 
+                //    modul.Courseid = Convert.ToInt32(HttpContext.Request.Params["txtCourseId"]);
+                // }
+            
                 db.Moduls.Add(modul);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -127,7 +147,7 @@ namespace LexiconLMS.Controllers
                 return HttpNotFound();
             }
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
-            return View(modul);
+            return PartialView(modul);
         }
 
         // POST: Moduls/Edit/5
@@ -144,7 +164,7 @@ namespace LexiconLMS.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
-            return View(modul);
+            return PartialView(modul);
         }
 
         // GET: Moduls/Delete/5

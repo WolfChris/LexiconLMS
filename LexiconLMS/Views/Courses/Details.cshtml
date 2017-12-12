@@ -1,51 +1,52 @@
 ﻿@model LexiconLMS.Models.Course
 
 @{
-    ViewBag.Title = "Course Details";
+    ViewBag.Title = "Kursdetaljer";
 }
+<div class="container-fluid container-xs-height">
+    <div class="row row-xs-height workContainer">
+        <div class="col-sm-9 col-md-10 main col-xs-height">
+            <h3>Kursdetaljer</h3>
 
-<h3>Details</h3>
+            <h4>@Html.DisplayFor(model => model.CourseName)</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CourseName)
+                </dt>
 
-<div>
-    <h4>@Html.DisplayFor(model => model.CourseName)</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CourseName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CourseName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CourseName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CoStartDate)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CoStartDate)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CoStartDate)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CoStartDate)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CoEndDate)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CoEndDate)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CoEndDate)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CoEndDate)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            </dl>
 
-    </dl>
-</div>
-<p>
-    @Ajax.ActionLink("Edit", // <-- Text to display
+            <p>
+                @Ajax.ActionLink("Edit", // <-- Text to display
                  "Edit", // <-- Action Method Name
                  new { id = Model.CourseId },
                  new AjaxOptions
@@ -54,17 +55,16 @@
                      InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
                      HttpMethod = "GET" // <-- HTTP method
                  })
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CourseId })*@ |
+                |
 
+                @Html.ActionLink("Tillbaka", "Index")
 
-    @Html.ActionLink("Back to List", "Index")
-
-</p>
-<h4>Modules</h4>
-<div class="list-group">
-    @foreach (var item in ViewBag.CourseModuls)
+            </p>
+            <h4>Modules</h4>
+            <div class="list-group">
+                @foreach (var item in ViewBag.CourseModuls)
             {
-        @Ajax.ActionLink((string)item.ModulName, // <-- Text to display
+                    @Ajax.ActionLink((string)item.ModulName, // <-- Text to display
                  "Details", // <-- Action Method Name
                  "Moduls", // <--- Controller name
                  new { id = item.Id },
@@ -76,16 +76,35 @@
                  },
                  new { @class = "list-group-item" }
                  )
-    }
-</div>
-<h2>Upload</h2>
-@using (Html.BeginForm())
-{
-    @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+                }
+                <h4>Kursdeltagare</h4>
+                @foreach (var item in ViewBag.UserCourse)
+            {
+                    <div>@item.UserName</div>
+                }
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-2 sidebar col-xs-height">
+            <h4>Dokument</h4>
+            @foreach (var item in ViewBag.DocumentCourse)
+            {
+                <div>@item.Name</div>
+            }
+            <hr id="coursesHR" />
+            @using (Html.BeginForm())
+            {
 
-    <script>
+                <a href="#" id="showUpload">Ladda upp dokument</a>
+                <script>
 
         $(document).ready(function () {
+            $('#showUpload').on('click', function () {
+                //alert("showUpload!");
+                $("#hideUpload").toggle("slow", function () {
+                    // Animation complete.
+                });
+                //$("#hideUpload").show();
+            });
             $('#btnUploadFile').on('click', function () {
                 //alert("Jävlar!");
                 var dti = $('#DocumentTypeId').val();
@@ -114,16 +133,27 @@
                 });
         });
     });
-    </script>
+                </script>
+                <div id="hideUpload">
+                    <h4>Ladda upp fil</h4>
+                    @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+                    <input type="file" name="FileUpload" id="fileUpload" /><br />
+                    <input id="btnUploadFile" type="button" value="Upload File" /><br />
+                </div><!-- Slut hideUpload -->
+            }
+            <hr id="coursesHR" />
+            @Ajax.ActionLink("Ny modul", // <-- Text to display
+                 "Create", // <-- Action Method Name
+                 "Moduls", // <--- Controller name
+                 new { id = Model.CourseId },
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "workspace", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 }
+                 )
 
-    <input type="file" name="FileUpload" id="fileUpload" /><br />
-    <input id="btnUploadFile" type="button" value="Upload File" /><br />
-
-    @Html.ActionLink("Documents", "Downloads")
-
-}
-@foreach (var item in ViewBag.UserCourse)
-{
-
-    <div>@item.UserName</div>
-}
+        </div>
+        </div>
+    </div>

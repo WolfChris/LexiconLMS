@@ -1,6 +1,15 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 60px;
     padding-bottom: 20px;
+
+}
+
+footer {
+    color: white;
+    background-color: black;    
+    padding: 10px;
+    max-width: 100%;
+    min-width: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -23,12 +32,61 @@ textarea {
     max-width: 280px;
 }
 
+#loginForm {
+    background-color: white;
+}
+
+.login-title {
+    background-color: white;
+    margin: 0px;
+    padding-top: 25px;
+    padding-right:15px;
+    padding-left: 15px;
+}
+
+#loginButtonForm{
+    padding-bottom: 50px;
+}
+
+#logInRow {
+
+    padding-bottom: 0px;
+}
+
+#validationWarning {
+    background-color: #ff8080;
+    display: none;    
+}
+#hideUpload {
+    display: none;
+}
+
 .sidebar {
     background-color: antiquewhite;
     border-right: 1px solid #eee;
 }
 
-.logo-gif{
+#coursesHR {
+    background-color: black;
+    height: 1px;
+    margin-bottom: 10px;
+    margin-top:10px;
+
+}
+
+.main {
+    background-color: white;
+}
+
+#main-container {
+    width: 100%;
+}
+/*fix the width to match the rest of the page*/
+#workspace {
+    width: 100%;
+}
+
+.logo-gif {
     height: 30px;
     width: 100px;
 }
@@ -114,3 +172,5 @@ textarea {
 .col-bottom {
     vertical-align: bottom;
 }
+
+
