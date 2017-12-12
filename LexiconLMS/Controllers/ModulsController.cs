@@ -11,9 +11,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 
 namespace LexiconLMS.Controllers
-{
-    
-   
+{   
     public class ModulsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -25,7 +23,7 @@ namespace LexiconLMS.Controllers
 
                 if (Request.Files[upload].FileName != "")
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/uploads/";
                     string filename = Path.GetFileName(Request.Files[upload].FileName);
                     Request.Files[upload].SaveAs(Path.Combine(path, filename));
 
@@ -55,7 +53,7 @@ namespace LexiconLMS.Controllers
 
         public ActionResult Downloads()
         {
-            var dir = new DirectoryInfo(Server.MapPath("~/App_Data/uploads/"));
+            var dir = new DirectoryInfo(Server.MapPath("~/uploads/"));
             FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
             foreach (var file in fileNames)
             {
@@ -149,7 +147,7 @@ namespace LexiconLMS.Controllers
                 return HttpNotFound();
             }
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
-            return View(modul);
+            return PartialView(modul);
         }
 
         // POST: Moduls/Edit/5
@@ -166,7 +164,7 @@ namespace LexiconLMS.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);
-            return View(modul);
+            return PartialView(modul);
         }
 
         // GET: Moduls/Delete/5

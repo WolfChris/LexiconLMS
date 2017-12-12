@@ -1,19 +1,23 @@
 ﻿@model IEnumerable<LexiconLMS.Models.Course>
 
 @{
-    ViewBag.Title = "List Of Courses";
+    ViewBag.Title = "Kurslista";
 }
 
 <div class="container-fluid container-xs-height" id="main-container">
     <div class="row row-xs-height">
         <div class="col-sm-3 col-md-2 sidebar col-xs-height">
-            @*list of all courses goes here lists are separated by 'ul' for example*@
-            <h3>Kurs Lista</h3>
+            @*list of all courses goes here*@
+            <h3>Kurslista</h3>
             <hr id="coursesHR" />
             <div class="list-group">
                 @foreach (var item in Model)
                 {
-                    @Ajax.ActionLink(item.CourseName, "Details", new { id = item.CourseId }, new AjaxOptions { UpdateTargetId = "workspace" }, new { @class = "list-group-item" })
+                    @Ajax.ActionLink(item.CourseName, 
+                   "Details", 
+                   new { id = item.CourseId }, 
+                   new AjaxOptions { UpdateTargetId = "workspace" }, 
+                   new { @class = "list-group-item" })
                 }
 
 
