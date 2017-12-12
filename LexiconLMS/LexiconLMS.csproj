@@ -235,10 +235,16 @@
     <Compile Include="Migrations\201712071349073_add_nullable.Designer.cs">
       <DependentUpon>201712071349073_add_nullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712112234255_studentassigmentsTable.cs" />
+    <Compile Include="Migrations\201712112234255_studentassigmentsTable.Designer.cs">
+      <DependentUpon>201712112234255_studentassigmentsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\ActivityType.cs" />
+    <Compile Include="Models\StudentAssigment.cs" />
+    <Compile Include="Models\AssigmentViewModel.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentType.cs" />
@@ -384,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712071349073_add_nullable.resx">
       <DependentUpon>201712071349073_add_nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712112234255_studentassigmentsTable.resx">
+      <DependentUpon>201712112234255_studentassigmentsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

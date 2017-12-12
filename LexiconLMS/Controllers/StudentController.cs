@@ -29,6 +29,11 @@ namespace LexiconLMS.Controllers
             return View(modul.ToList());
         }
 
-      
+      public ActionResult ListAssigments()
+        {
+           
+            //return View(documents.ToList());
+            return View();
+        }
     }
 }

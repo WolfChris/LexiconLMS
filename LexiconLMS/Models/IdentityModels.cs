@@ -53,7 +53,9 @@ namespace LexiconLMS.Models
 
         public DbSet<DocumentType> DocumentTypes { get; set; }
 
-        
+        public DbSet<StudentAssigment> StudentAssigments { get; set; }
+
+
 
     }
 }
