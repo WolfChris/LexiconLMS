@@ -54,21 +54,27 @@
                 </dl>
            
             <hr />
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Teacher"))
+                {
             <p>
                 @Ajax.ActionLink("Edit", // <-- Text to display
-                 "Edit", // <-- Action Method Name
-                 new { id = Model.Id },
-                 new AjaxOptions
-                 {
-                     UpdateTargetId = "workspace", // <-- DOM element ID to update
-                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
-                     HttpMethod = "GET" // <-- HTTP method
-                 })
+                          "Edit", // <-- Action Method Name
+                          new { id = Model.Id },
+                          new AjaxOptions
+                          {
+                              UpdateTargetId = "workspace", // <-- DOM element ID to update
+                              InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                              HttpMethod = "GET" // <-- HTTP method
+                          })
 
 
                  |
                 @Html.ActionLink("Back to List", "Index")
             </p>
+                }
+                }
             <h4>Activities</h4>
             @*@foreach (var item in ViewBag.ModulActivities)
                 {
