@@ -7,18 +7,18 @@ namespace LexiconLMS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class newtry5 : IMigrationMetadata
+    public sealed partial class revert : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newtry5));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(revert));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712111332254_newtry5"; }
+            get { return "201712111612486_revert"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target
