@@ -46,7 +46,8 @@
                     if (User.IsInRole("Student"))
                     {
                         <li> @Html.ActionLink("Module", "Index", "Student")</li>
-                           
+                        <li> @Html.ActionLink("Assigments", "Assigments", "Student")</li>
+
                     }
                 }
                 </ul>
