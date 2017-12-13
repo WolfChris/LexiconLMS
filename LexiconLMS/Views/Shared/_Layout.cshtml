@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - LexiconLMS</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    
+    @Scripts.Render("~/bundles/modernizr")    
 
     <meta name="description" content="The description of my page" />
 </head>
@@ -19,8 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*@if (User.Identity.IsAuthenticated)*@
-                @*{*@
+                
                     @if (User.IsInRole("Teacher"))
                     {
                         <a href="@Url.Action("Index", "Courses")" class="navbar-brand">
@@ -38,43 +36,19 @@
                     <a href="@Url.Action("Login", "Account")" class="navbar-brand">
                         <img src="~/Img/logo-lexicon@2x.gif" title="Lexicon Logo" alt="Logo Gif" class="logo-gif" />
                     </a>
-
-                }
-                @*}*@
-            </div>
-            <div class="navbar-collapse collapse">
-                @*<ul class="nav navbar-nav">
-                    
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        if (User.IsInRole("Teacher"))
-                        {
-                            <li> @Html.ActionLink("Add Course/Module", "Index", "Courses")</li>
-                            <li> @Html.ActionLink("Users", "Index", "Users", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                            <li> @Html.ActionLink("Moduls", "Index", "Moduls")</li>
-                            <li> @Html.ActionLink("Activities", "Index", "Activities")</li>
-                            <li> @Html.ActionLink("ActivityTypes", "Index", "Activitytypes")</li>
-                        }
                     }
                 
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Student"))
-                    {
-                        <li> @Html.ActionLink("Module", "Index", "Student")</li>
-                        <li> @Html.ActionLink("Assigments", "Assigments", "Student")</li>
-
-                    }
-                }
-                </ul>*@
+                <p id="logoText">Learning Management System</p>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
-        @*<hr />*@
+        @RenderBody()        
         <footer>
             <p>&copy; @DateTime.Now.Year - Lexicon .NET Team</p>
         </footer>
