@@ -176,8 +176,8 @@ if (User.IsInRole("Student"))
                 // Make Ajax request with the contentType = false, and procesDate = false
                 var ajaxRequest = $.ajax({
                     type: "POST",
-                    //url: "Activities/UploadIndex",
-                    url: '@Url.Action("UploadIndex", "Activities")',
+                    //url: "Activities/UploadIndexstudent",
+                    url: '@Url.Action("UploadIndexStudent", "Activities")',
                     processData: false,
                     contentType: false,
 

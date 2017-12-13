@@ -44,6 +44,37 @@ namespace LexiconLMS.Controllers
             }
             return View();
         }
+       // for student 
+        public ActionResult UploadIndexStudent(HttpPostedFileBase postedFile)
+        {
+            foreach (string upload in Request.Files)
+            {
+
+                if (Request.Files[upload].FileName != "")
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/assigments/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+                    int documentTypeId = Convert.ToInt32(HttpContext.Request.Params["documentTypeId"]);
+                    int activityId = Convert.ToInt32(HttpContext.Request.Params["activityId"]);
+                    db.Documents.Add(new Document
+                    {
+                        Name = filename,
+                        TimeStamp = DateTime.Now,
+                        FileName = filename,
+                        DocumentTypeId = documentTypeId,
+                        ActivityId = activityId,
+                        UserId = User.Identity.GetUserId()
+
+                    });
+
+                    db.SaveChanges();
+
+                }
+            }
+            return View();
+        }
+
 
         public ActionResult Downloads()
         {

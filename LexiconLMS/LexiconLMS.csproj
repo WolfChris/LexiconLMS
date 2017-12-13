@@ -345,6 +345,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\assigments\" />
     <Folder Include="App_Data\uploads\" />
   </ItemGroup>
   <PropertyGroup>
