@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LexiconLMS.Models;
-using System.IO;
 
 namespace LexiconLMS.Controllers
 {
@@ -124,11 +123,8 @@ namespace LexiconLMS.Controllers
                 }
             }
 
-
             return View(model);
         }
-
-
 
         //
         // GET: /Account/VerifyCode
@@ -174,17 +170,15 @@ namespace LexiconLMS.Controllers
         }
 
         //
-        // GET: /Account/Register
-        [AllowAnonymous]
+        // GET: /Account/Register        
         public ActionResult Register()
         {
             var allRoles = (new ApplicationDbContext())
                 .Roles.OrderBy(r => r.Name)
                 .ToList()
                 .Select(r => new SelectListItem {
-                    Value = r.Name.ToString(),
-                    Text = r.Name }).ToList();
-
+                  Value = r.Name.ToString(),
+                  Text = r.Name }).ToList();
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
             ViewBag.Roles = allRoles;
             if (Request.IsAjaxRequest()) return PartialView();
@@ -194,8 +188,7 @@ namespace LexiconLMS.Controllers
 
         //
         // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
+        [HttpPost]        
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase ImageFile)
         {
@@ -223,7 +216,7 @@ namespace LexiconLMS.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Courses");
+                    return RedirectToAction("Register", "Account");
                 }
                 else
                 {
@@ -238,7 +231,7 @@ namespace LexiconLMS.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return PartialView(model);
         }
 
 

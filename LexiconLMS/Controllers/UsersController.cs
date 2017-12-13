@@ -17,10 +17,9 @@ namespace LexiconLMS.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            var user = db.Users.ToList();
-            if (Request.IsAjaxRequest()) return PartialView(db.Users.ToList());
-
-            return View(db.Users.ToList());
+            var users = db.Users.ToList();
+            if (Request.IsAjaxRequest()) return PartialView(users);
+            return View(users);
         }
 
         // GET: Users/Details/5
@@ -48,7 +47,7 @@ namespace LexiconLMS.Controllers
             //byte[] image = applicationUser.Image;
             //    return File(image, "image/jpg");
         }
-
+        
         // GET: Users/Create
         public ActionResult Create()
         {            

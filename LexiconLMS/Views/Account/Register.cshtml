@@ -1,9 +1,10 @@
 ﻿@model LexiconLMS.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Registrera";
 }
 <hr />
-@Ajax.ActionLink("Användarlista", // <-- Text to display
+
+@Ajax.ActionLink("Användare", // <-- Text to display
                     "Index", // <-- Action Method Name
                     "Users",
                     new AjaxOptions
@@ -11,12 +12,12 @@
                         UpdateTargetId = "workspace", // <-- DOM element ID to update
                         InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
                         HttpMethod = "GET" // <-- HTTP method
-                    })
+                    }) 
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Skapa ny användare</h4>
+    <h4>Skapa ny användarkonto</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -53,14 +54,15 @@
     </div>
     <div class="form-group">
         <label class = "col-md-2 control-label">Kurs</label>
+
         <div class="col-md-10">
-            @Html.DropDownList("CourseId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("CourseId", null, "Välj kurs...", htmlAttributes: new { @class = "form-control" })
         </div>
     </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.UserRole, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.DropDownList("UserRole", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+                    @Html.DropDownList("UserRole", (IEnumerable<SelectListItem>)ViewBag.Roles, "Välj roll...")
 
                 </div>
             </div>
@@ -73,8 +75,6 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    
-                    
                     <input type="submit" class="btn btn-default" value="Register" />
                 </div>
             </div>
