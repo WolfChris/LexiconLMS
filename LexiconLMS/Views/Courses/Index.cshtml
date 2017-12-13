@@ -4,7 +4,7 @@
     ViewBag.Title = "Kurslista";
 }
 
-<div class="container-fluid main-container container-xs-height" id="main-container">
+<div class="container-fluid container-xs-height" id="main-container">
     <div class="row row-xs-height">
         <div class="col-sm-3 col-md-2 sidebar col-xs-height">
             @*list of all courses goes here*@
@@ -22,6 +22,7 @@
 
 
                 <hr id="coursesHR" />
+                
                 @Ajax.ActionLink("Användare", // <-- Text to display
                     "Index", // <-- Action Method Name
                     "Users",
@@ -30,7 +31,8 @@
                         UpdateTargetId = "workspace", // <-- DOM element ID to update
                         InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
                         HttpMethod = "GET" // <-- HTTP method
-                    })
+                    }) 
+
                 <br />
 
                 @Ajax.ActionLink("Ny Kurs", // <-- Text to display
@@ -40,7 +42,7 @@
                         UpdateTargetId = "workspace", // <-- DOM element ID to update
                         InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
                         HttpMethod = "GET" // <-- HTTP method
-                    })
+                })
                 <hr id="coursesHR" />
             </div>
         </div>

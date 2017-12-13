@@ -7,16 +7,14 @@
 <h4>Andvändare Index</h4>
 
 <p>
-    @Ajax.ActionLink("Skapa Användare", // <-- Text to display
-                    "Register", // <-- Action Method Name
-                    "Account",
-                    new AjaxOptions
-                    {
-                        UpdateTargetId = "workspace", // <-- DOM element ID to update
-                        InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
-                        HttpMethod = "GET" // <-- HTTP method
-                    })
-    @*@Html.ActionLink("Create New", "Create")*@
+    @*@Html.ActionLink("Ny Användare", "Create")*@
+
+    @Ajax.ActionLink("Ny Användare",
+                   "Create",
+                   "Users",
+                   
+                   new AjaxOptions { UpdateTargetId = "workspace" },
+                   new { @class = "list-group-item" })
 </p>
 <table class="table">
     <tr>

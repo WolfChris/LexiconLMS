@@ -7,18 +7,18 @@ namespace LexiconLMS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addImgPropToIdentMod : IMigrationMetadata
+    public sealed partial class finalMerge : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addImgPropToIdentMod));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(finalMerge));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712090754359_addImgPropToIdentMod"; }
+            get { return "201712130843084_finalMerge"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return null; }
+            get { return Resources.GetString("Source"); }
         }
         
         string IMigrationMetadata.Target

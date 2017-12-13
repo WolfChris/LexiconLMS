@@ -7,13 +7,13 @@ namespace LexiconLMS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addImgPropToIdentMod1 : IMigrationMetadata
+    public sealed partial class revert : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addImgPropToIdentMod1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(revert));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712090937449_addImgPropToIdentMod1"; }
+            get { return "201712111612486_revert"; }
         }
         
         string IMigrationMetadata.Source

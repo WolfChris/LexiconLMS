@@ -3,7 +3,7 @@ namespace LexiconLMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class movepropimagetoregviewmod : DbMigration
+    public partial class revert : DbMigration
     {
         public override void Up()
         {

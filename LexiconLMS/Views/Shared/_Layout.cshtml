@@ -19,14 +19,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                @*@if (User.Identity.IsAuthenticated)*@
+                @*{*@
+                    @if (User.IsInRole("Teacher"))
+                    {
+                        <a href="@Url.Action("Index", "Courses")" class="navbar-brand">
+                            <img src="~/Img/logo-lexicon@2x.gif" title="Lexicon Logo" alt="Logo Gif" class="logo-gif" />
+                        </a>
+                    }
+                    else if(User.IsInRole("Student"))
+                    {
+                        <a href="@Url.Action("Index", "Student")" class="navbar-brand">
+                            <img src="~/Img/logo-lexicon@2x.gif" title="Lexicon Logo" alt="Logo Gif" class="logo-gif" />
+                        </a>
+                    }
+                    else
+                    {
+                    <a href="@Url.Action("Login", "Account")" class="navbar-brand">
+                        <img src="~/Img/logo-lexicon@2x.gif" title="Lexicon Logo" alt="Logo Gif" class="logo-gif" />
+                    </a>
 
-                <a href="@Url.Action("Index", "Courses")" class="navbar-brand">
-                    <img src="~/Img/logo-lexicon@2x.gif" title="Lexicon Logo" alt="Logo Gif" class="logo-gif" />
-                </a>
-                
+                }
+                @*}*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                @*<ul class="nav navbar-nav">
                     
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -50,7 +67,7 @@
 
                     }
                 }
-                </ul>
+                </ul>*@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -58,7 +75,7 @@
     <div class="container body-content">
         @RenderBody()
         @*<hr />*@
-        <footer class="footer">
+        <footer>
             <p>&copy; @DateTime.Now.Year - Lexicon .NET Team</p>
         </footer>
     </div>

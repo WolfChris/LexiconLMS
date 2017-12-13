@@ -1,26 +1,58 @@
 ﻿@model List<LexiconLMS.Models.Modul>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Student Index";
 }
-<hr />
 
-<h3> Hallo @TempData["name"]!</h3>
-<hr />
+<div class="container-fluid main-container container-xs-height" id="main-container">
+    <div class="row row-xs-height">
+        <div class="col-sm-3 col-md-2 sidebar col-xs-height">
+            @*list of all courses goes here*@
+            <h4>Kurs för @TempData["name"]</h4>
 
-<h5>You are enrolled in the following course:</h5><h3>@TempData["courseName"] </h3>
+            <hr id="coursesHR" />
 
-<h5>Course Start: @TempData["CourseStart"] </h5>
-<h5>Course End: @TempData["courseEnd"]</h5> 
-   <hr />
-<h3>List of Moduls in your course</h3>
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li> @Html.ActionLink(item.ModulName, "Details", "Moduls", new { id = item.Id }, null)</li>   
-           
-        }
-    </ul>
+            <div class="list-group">
+                @*@Html.ActionLink(TempData["courseName"].ToString(), 
+                   "Index", 
+                   "Student", 
+                   new { @class = "list-group-item" })*@
+                <a href="@Url.Action("Index", "Student")" class="list-group-item">@TempData["courseName"]</a>
 
-<hr/>
 
+</div>
+
+            
+        </div>
+        <div class="col-sm-9 col-md-10 main col-xs-height">
+
+            @*clicked links are displayed here*@
+            <div id="workspace">
+
+                <h3>Kurs:@TempData["courseName"] </h3>
+                <h5>Kursbeskrivning:@TempData["courseDescription"]</h5>
+
+                <h5>Course Start: @TempData["CourseStart"] </h5>
+                <h5>Course End: @TempData["courseEnd"]</h5>
+
+                <h3>Kursmoduler</h3>
+                
+                    <div class="list-group">
+                        @foreach (var item in Model)
+                        {
+                            @Ajax.ActionLink(item.ModulName,
+                               "Details",
+                               "Moduls",
+                               new { id = item.Id },
+                               new AjaxOptions { UpdateTargetId = "workspace" },
+                               new { @class = "list-group-item" })
+                        }
+                        
+                    </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -207,17 +207,9 @@
     <Compile Include="Migrations\201712080740278_init.Designer.cs">
       <DependentUpon>201712080740278_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712090754359_addImgPropToIdentMod.cs" />
-    <Compile Include="Migrations\201712090754359_addImgPropToIdentMod.Designer.cs">
-      <DependentUpon>201712090754359_addImgPropToIdentMod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712090822382_movepropimagetoregviewmod.cs" />
-    <Compile Include="Migrations\201712090822382_movepropimagetoregviewmod.Designer.cs">
-      <DependentUpon>201712090822382_movepropimagetoregviewmod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712090937449_addImgPropToIdentMod1.cs" />
-    <Compile Include="Migrations\201712090937449_addImgPropToIdentMod1.Designer.cs">
-      <DependentUpon>201712090937449_addImgPropToIdentMod1.cs</DependentUpon>
+    <Compile Include="Migrations\201712130843084_finalMerge.cs" />
+    <Compile Include="Migrations\201712130843084_finalMerge.Designer.cs">
+      <DependentUpon>201712130843084_finalMerge.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -345,19 +337,12 @@
     <EmbeddedResource Include="Migrations\201712080740278_init.resx">
       <DependentUpon>201712080740278_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712090754359_addImgPropToIdentMod.resx">
-      <DependentUpon>201712090754359_addImgPropToIdentMod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712090822382_movepropimagetoregviewmod.resx">
-      <DependentUpon>201712090822382_movepropimagetoregviewmod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712090937449_addImgPropToIdentMod1.resx">
-      <DependentUpon>201712090937449_addImgPropToIdentMod1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712130843084_finalMerge.resx">
+      <DependentUpon>201712130843084_finalMerge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
-    <Folder Include="uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

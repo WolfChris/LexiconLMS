@@ -3,16 +3,16 @@ namespace LexiconLMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addImgPropToIdentMod1 : DbMigration
+    public partial class finalMerge : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.AspNetUsers", "Image", c => c.Binary());
+            DropColumn("dbo.AspNetUsers", "Image");
         }
         
         public override void Down()
         {
-            DropColumn("dbo.AspNetUsers", "Image");
+            AddColumn("dbo.AspNetUsers", "Image", c => c.Binary());
         }
     }
 }
