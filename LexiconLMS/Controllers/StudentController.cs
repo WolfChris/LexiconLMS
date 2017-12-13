@@ -26,6 +26,7 @@ namespace LexiconLMS.Controllers
             TempData["CourseStart"] = course.CoStartDate;
             TempData["courseEnd"] = course.CoStartDate;
             TempData["courseDescription"] = course.Description;
+            TempData["courseId"] = course.CourseId;
 
             return View(modul.ToList());
         }
