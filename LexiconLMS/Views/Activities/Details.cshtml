@@ -4,7 +4,8 @@
     ViewBag.Title = "Detaljer Aktivitet";
 }
 
-
+@if (User.Identity.IsAuthenticated)
+{
 
 <div>
     <h4>Detaljer Aktivitet</h4>
@@ -60,23 +61,22 @@
 
     </dl>
 </div>
-@if (User.Identity.IsAuthenticated)
-{
+
     if (User.IsInRole("Teacher"))
     {
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
-    }
-}
 
-@{
-    ViewBag.Title = "Upload";
-}
 
-@using (Html.BeginForm())
-{
+
+        {
+            ViewBag.Title = "Upload";
+        }
+
+        using (Html.BeginForm())
+        {
 
 
  <a href="#" id="showUpload">Ladda upp dokument</a>
@@ -118,7 +118,7 @@
             });
         });
     </script>
-
+        }
     <div id="hideUpload">
         <h4>Upload</h4>
         @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
@@ -128,14 +128,87 @@
 
 @Html.ActionLink("Documents", "Downloads")
 
-}
+
 
 <h4>Dokument</h4>
-@foreach (var item in ViewBag.DocumentActivity)
-{
+        foreach (var item in ViewBag.DocumentActivity)
+        {
 
     <div><a href="~/uploads/@item.Name">@item.Name</a></div>
-}
+        }
 
-        
+    }
+
 <!--if the logged in user is student-->
+
+if (User.IsInRole("Student"))
+    {
+
+        {
+            ViewBag.Title = "Upload";
+        }
+
+        using (Html.BeginForm())
+        {
+
+
+<a href="#" id="showUpload">Ladda upp dokument</a>
+<script>
+
+        $(document).ready(function () {
+            $('#showUpload').on('click', function () {
+                //alert("showUpload!");
+                $("#hideUpload").toggle("slow", function () {
+                    // Animation complete.
+                });
+            });
+            $('#btnUploadFile').on('click', function () {
+                //alert("Jävlar!");
+                var dti = $('#DocumentTypeId').val();
+                var data = new FormData();
+                var files = $("#fileUpload").get(0).files;
+                data.append('activityId', '@Model.Id');
+                data.append('documentTypeId', dti);
+                // Add the uploaded image content to the form data collection
+                if (files.length > 0) {
+                    data.append("UploadedImage", files[0]);
+                }
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST",
+                    //url: "Activities/UploadIndex",
+                    url: '@Url.Action("UploadIndex", "Activities")',
+                    processData: false,
+                    contentType: false,
+
+                    data: data
+                });
+                alert("Filen uppladdad!");
+                ajaxRequest.done(function (xhr, textStatus) {
+
+                    // Do other operation
+                });
+            });
+        });
+</script>
+        }
+<div id="hideUpload">
+    <h4>Upload</h4>
+    @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
+    <input type="file" name="FileUpload" id="fileUpload" /><br />
+    <input id="btnUploadFile" type="button" value="Upload File" /><br />
+</div><!-- Slut hideUpload -->
+
+@Html.ActionLink("Documents", "Downloads")
+
+
+
+<h4>Dokument</h4>
+        foreach (var item in ViewBag.DocumentActivity)
+        {
+
+<div><a href="~/uploads/@item.Name">@item.Name</a></div>
+        }
+
+    }
+}
