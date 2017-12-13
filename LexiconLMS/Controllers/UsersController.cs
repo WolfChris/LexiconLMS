@@ -19,8 +19,8 @@ namespace LexiconLMS.Controllers
         {
             var user = db.Users.ToList();
 
-                       
-            return View(db.Users.ToList());
+            if (Request.IsAjaxRequest()) return PartialView(user);
+            return View(user);
         }
 
         // GET: Users/Details/5

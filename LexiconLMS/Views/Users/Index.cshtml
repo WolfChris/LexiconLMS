@@ -7,7 +7,14 @@
 <h4>Andvändare Index</h4>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Ny Användare", "Create")*@
+
+    @Ajax.ActionLink("Ny Användare",
+                   "Create",
+                   "Users",
+                   
+                   new AjaxOptions { UpdateTargetId = "workspace" },
+                   new { @class = "list-group-item" })
 </p>
 <table class="table">
     <tr>

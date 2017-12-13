@@ -123,11 +123,8 @@ namespace LexiconLMS.Controllers
                 }
             }
 
-
             return View(model);
         }
-
-
 
         //
         // GET: /Account/VerifyCode
@@ -173,22 +170,20 @@ namespace LexiconLMS.Controllers
         }
 
         //
-        // GET: /Account/Register
-        [AllowAnonymous]
+        // GET: /Account/Register        
         public ActionResult Register()
         {
             var allRoles = (new ApplicationDbContext()).Roles.OrderBy(r => r.Name).ToList().Select(r =>
               new SelectListItem { Value = r.Name.ToString(), Text = r.Name }).ToList();
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
             ViewBag.Roles = allRoles;
-            return View();
+            return PartialView();
 
         }
 
         //
         // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
+        [HttpPost]        
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -202,7 +197,7 @@ namespace LexiconLMS.Controllers
                 {
                     UserManager.AddToRole(user.Id, model.UserRole);
 
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -210,7 +205,7 @@ namespace LexiconLMS.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Courses");
+                    return RedirectToAction("Register", "Account");
                 }
                 else
                 {
@@ -225,7 +220,7 @@ namespace LexiconLMS.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return PartialView(model);
         }
 
 

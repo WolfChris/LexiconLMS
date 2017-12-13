@@ -76,6 +76,7 @@ textarea {
 
 .main {
     background-color: white;
+    padding-right: 0;
 }
 
 #main-container {

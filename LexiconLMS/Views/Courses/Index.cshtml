@@ -22,15 +22,27 @@
 
 
                 <hr id="coursesHR" />
+                
+                @Ajax.ActionLink("Användare", // <-- Text to display
+                    "Index", // <-- Action Method Name
+                    "Users",
+                    new AjaxOptions
+                    {
+                        UpdateTargetId = "workspace", // <-- DOM element ID to update
+                        InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                        HttpMethod = "GET" // <-- HTTP method
+                    }) 
+
+                <br />
 
                 @Ajax.ActionLink("Ny Kurs", // <-- Text to display
-            "Create", // <-- Action Method Name
-            new AjaxOptions
-            {
-                UpdateTargetId = "workspace", // <-- DOM element ID to update
-                InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
-                HttpMethod = "GET" // <-- HTTP method
-            })
+                    "Create", // <-- Action Method Name
+                    new AjaxOptions
+                    {
+                        UpdateTargetId = "workspace", // <-- DOM element ID to update
+                        InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                        HttpMethod = "GET" // <-- HTTP method
+                })
                 <hr id="coursesHR" />
             </div>
         </div>
