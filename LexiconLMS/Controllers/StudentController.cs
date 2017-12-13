@@ -27,7 +27,8 @@ namespace LexiconLMS.Controllers
             TempData["courseEnd"] = course.CoStartDate;
             TempData["courseDescription"] = course.Description;
 
-            return View(modul.ToList());
+          if (Request.IsAjaxRequest()) return PartialView(modul);
+            return View(modul); ;
         }
 
 

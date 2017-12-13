@@ -60,10 +60,17 @@
 
     </dl>
 </div>
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("Teacher"))
+    {
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+    }
+}
+
 @{
     ViewBag.Title = "Upload";
 }
@@ -111,6 +118,7 @@
             });
         });
     </script>
+
     <div id="hideUpload">
         <h4>Upload</h4>
         @Html.DropDownList("DocumentTypeId", null, htmlAttributes: new { @class = "form-control" })
@@ -125,5 +133,9 @@
 <h4>Dokument</h4>
 @foreach (var item in ViewBag.DocumentActivity)
 {
+
     <div><a href="~/uploads/@item.Name">@item.Name</a></div>
 }
+
+        
+<!--if the logged in user is student-->
