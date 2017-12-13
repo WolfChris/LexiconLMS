@@ -31,15 +31,15 @@ namespace LexiconLMS.Controllers
             return View(modul); ;
         }
 
-      
-    
 
-    //public ActionResult Assigments()
-    //{
-    //        var user = db.Users.Find(User.Identity.GetUserId());
-    //        var modul = db.Moduls.Where(x => x.Courseid == user.CourseId).Select(y => y.Activities.Where(a => a.ActivityTypeId == 2));
-            
-    //        return View(modul);
-    //}
-}
+
+
+        public ActionResult Assigments()
+        {
+            var user = db.Users.Find(User.Identity.GetUserId());
+            var modul = db.Moduls.Where(x => x.Courseid == user.CourseId).Select(y => y.Activities.Where(a => a.ActivityTypeId == 2));
+
+            return View(modul);
+        }
+    }
 }
