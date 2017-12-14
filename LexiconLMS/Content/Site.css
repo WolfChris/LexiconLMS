@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 60px;
+    padding-top: 75px;
     padding-bottom: 20px;
 
 }
@@ -23,6 +23,19 @@ footer {
 */
 .dl-horizontal dt {
     white-space: normal;
+}
+
+#logoText{
+    color: white;
+    font-size: smaller;
+}
+
+.navbar-brand{
+    padding-bottom: 5px;
+}
+
+.navbar-right{
+    padding-top: 5px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

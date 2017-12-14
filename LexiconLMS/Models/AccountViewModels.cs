@@ -89,11 +89,7 @@ namespace LexiconLMS.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        //public IEnumerable<IdentityRole> UserRoles { get; set; }
-        //public int RoleId { get; set; }
-
-        //[ForeignKey("RoleId")]
-        //public IdentityRole IdentityRole { get; set; }
+        public byte[] Image { get; set; }
     }
 
     public class ResetPasswordViewModel

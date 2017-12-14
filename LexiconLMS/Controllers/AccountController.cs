@@ -173,11 +173,16 @@ namespace LexiconLMS.Controllers
         // GET: /Account/Register        
         public ActionResult Register()
         {
-            var allRoles = (new ApplicationDbContext()).Roles.OrderBy(r => r.Name).ToList().Select(r =>
-              new SelectListItem { Value = r.Name.ToString(), Text = r.Name }).ToList();
+            var allRoles = (new ApplicationDbContext())
+                .Roles.OrderBy(r => r.Name)
+                .ToList()
+                .Select(r => new SelectListItem {
+                  Value = r.Name.ToString(),
+                  Text = r.Name }).ToList();
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "CourseName");
             ViewBag.Roles = allRoles;
-            return PartialView();
+            if (Request.IsAjaxRequest()) return PartialView();
+            return View();
 
         }
 
@@ -185,12 +190,18 @@ namespace LexiconLMS.Controllers
         // POST: /Account/Register
         [HttpPost]        
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
-
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LastName = model.LastName, FirstName= model.FirstName, CourseId= Convert.ToInt32(HttpContext.Request.Params["courseId"]) };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    LastName = model.LastName,
+                    FirstName = model.FirstName,
+                    CourseId = Convert.ToInt32(HttpContext.Request.Params["courseId"]),
+                    Image = model.Image
+                };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
