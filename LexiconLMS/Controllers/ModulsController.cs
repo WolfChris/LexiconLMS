@@ -127,7 +127,7 @@ namespace LexiconLMS.Controllers
             
                 db.Moduls.Add(modul);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Courses");
             }
 
             ViewBag.Courseid = new SelectList(db.Courses, "CourseId", "CourseName", modul.Courseid);

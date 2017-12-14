@@ -14,9 +14,6 @@
     }
 }
 
-
-
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -83,7 +80,6 @@
         </div>
     </div>
 }
-
 <div>
 
     @Html.ActionLink("Tillbaka", "Index", "Courses")
@@ -105,8 +101,8 @@
             var coEndDate = $("#txtCoEndDate").val();
             var modulStart = $("#ModulStart").val();
             var modulEnd = $("#ModulEnd").val();
-
-            if (modulStart < coStartDate || modulStart > coEndDate || modulEnd < coStartDate || modulEnd > coEndDate) {
+            
+            if (modulStart < coStartDate.Substring(0, 10) || modulStart > coEndDate.Substring(0, 10) || modulEnd < coStartDate.Substring(0, 10) || modulEnd > coEndDate.Substring(0, 10)) {
                 $("#validationWarning").show();
                 $("#validationWarning").css('display', 'inline-block');
                 //alert("Satan vad datum var fel!");
@@ -114,8 +110,6 @@
             } else {
                 alert("Bravo!!!");
             }
-
-
 
         });
 

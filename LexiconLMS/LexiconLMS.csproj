@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201712130843084_finalMerge.Designer.cs">
       <DependentUpon>201712130843084_finalMerge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712140927080_newGet.cs" />
+    <Compile Include="Migrations\201712140927080_newGet.Designer.cs">
+      <DependentUpon>201712140927080_newGet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -339,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712130843084_finalMerge.resx">
       <DependentUpon>201712130843084_finalMerge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712140927080_newGet.resx">
+      <DependentUpon>201712140927080_newGet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

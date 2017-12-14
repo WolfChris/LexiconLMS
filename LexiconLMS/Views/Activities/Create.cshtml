@@ -112,7 +112,7 @@
             var activityStart = $("#ActivityStart").val();
             var activityEnd = $("#ActivityEnd").val();
 
-            if (activityStart < moduleStart || activityStart > moduleEnd || activityEnd < moduleStart || activityEnd > moduleEnd) {
+            if (activityStart < moduleStart.Substring(0, 10) || activityStart > moduleEnd.Substring(0, 10) || activityEnd < moduleStart.Substring(0, 10) || activityEnd > moduleEnd.Substring(0, 10)) {
                 $("#validationWarning").show();
                 $("#validationWarning").css('display', 'inline-block');
                 //alert("Satan vad datum var fel!");
